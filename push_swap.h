@@ -15,6 +15,8 @@ typedef struct s_data
 	int		min;
 	int		max;
 	int		mid;
+	int		next_order;
+	
 }t_data;
 
 typedef struct s_list
