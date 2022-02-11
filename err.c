@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-char	error(t_data *data, char *mes)
+char	error(t_data *data)
 {
 	exit(0);
 	return(0);

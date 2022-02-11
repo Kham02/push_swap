@@ -9,9 +9,13 @@
 
 typedef struct s_data
 {
-	t_all	a_stack;
-	t_all	b_stack;
+	t_list	a_stack;
+	t_list	b_stack;
+	t_list	stack;
+	char	*str;
+	char	*str2;
 	int		i;
+	int		j;
 	int		min;
 	int		max;
 	int		mid;
@@ -30,6 +34,10 @@ typedef struct s_list
 
 
 
-int	main(int ac ,char **av);
+int		main(int ac ,char **av);
+void	check(t_data *data, int ac, char **av);
+void	values(t_data *data);
+void	writing(t_data *data, char *str);
+
 
 #endif

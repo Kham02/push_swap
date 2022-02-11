@@ -3,6 +3,11 @@
 void	values(t_data *data)
 {
 	data->i = 0;
+	data->str = ft_strdup("");
+	data->min = 0;
+	data->mid = 0;
+	data->max = 0;
+	data->next_order = 0;
 }
 
 void	check(t_data *data, int ac, char **av)
@@ -10,10 +15,10 @@ void	check(t_data *data, int ac, char **av)
 	values(data);
 	while (data->i <= ac - 1)
 	{
-		writing(data, av[data->i]);
+		data->str = ft_strjoin(data->str, av[data->i]);
 		data->i++;
 	}
-	
+	check_valid(data);
 
 }
 
