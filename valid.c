@@ -1,12 +1,12 @@
 #include "push_swap.h"
 
-void	null_null(t_data *data)
+static void	null_null(t_data *data)
 {
 	data->j = 0;
 	data->i = 0;
-	data->stack->val = 0;
-	data->stack->order = 0;
-	data->stack->flag = 0;
+	data->size = 0;
+	data->a_stack->order = 0;
+	data->a_stack->flag = 0;
 }
 
 void	check_valid(t_data *data)
@@ -16,12 +16,12 @@ void	check_valid(t_data *data)
 		data->str[data->i] == 13 || data->str[data->i] == 32 || data->str[data->i] == ',' || 
 		data->str[data->i] == '+' || data->str[data->i] == '-')
 		data->i++;
-	if (data->str[data->i] != '\n')
+	if (data->str[data->i] != '\0')
 		error(data);
 	mp(data);
 }
 
-void	mp(t_data *data)
+static void	mp(t_data *data)
 {
 	null_null(data);
 	while (data->str[data->i])
@@ -31,10 +31,12 @@ void	mp(t_data *data)
 			data->j = data->i;
 			while (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
 				data->i++;
-			data->stack->val = push_swap_atoi(data, 0, 1);
+			data->a_stack->val = push_swap_atoi(data, 0, 1);
+			data->size_a++;
 		}
 		data->i++;
 	}
+	data->str = ft_strdup("");
 }
 
 int	push_swap_atoi(t_data *data, unsigned int n, int s)

@@ -14,6 +14,8 @@ typedef struct s_data
 	t_list	stack;
 	char	*str;
 	char	*str2;
+	int		*str_int;
+	int		size_a;
 	int		i;
 	int		j;
 	int		min;
@@ -37,7 +39,10 @@ typedef struct s_list
 int		main(int ac ,char **av);
 void	check(t_data *data, int ac, char **av);
 void	values(t_data *data);
-void	writing(t_data *data, char *str);
-
+void	check_valid(t_data *data);
+int		push_swap_atoi(t_data *data, unsigned int n, int s);
+char	error(t_data *data);
+void	free(char **str);
+int		check_sort(t_data *data);
 
 #endif

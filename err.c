@@ -19,8 +19,3 @@ void	free(char **str)
 	}
 	free(str[i]);
 }
-
-char	delstr(char	*str)
-{
-
-}

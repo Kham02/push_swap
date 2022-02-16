@@ -8,6 +8,8 @@ void	values(t_data *data)
 	data->mid = 0;
 	data->max = 0;
 	data->next_order = 0;
+	data->a_stack->next = data->a_stack;
+	data->a_stack->prev = data->a_stack;
 }
 
 void	check(t_data *data, int ac, char **av)
@@ -19,7 +21,10 @@ void	check(t_data *data, int ac, char **av)
 		data->i++;
 	}
 	check_valid(data);
-
+	if (check_sort(data) > 0)
+		//печатаем
+	else
+		//сортируем
 }
 
 int	main(int ac ,char **av)
@@ -32,5 +37,5 @@ int	main(int ac ,char **av)
 		error(data);
 	if (!(data->a_stack = (t_list *)malloc(sizeof(t_list))))
 		error(data);
-	
+	check(data, ac, av);
 }
