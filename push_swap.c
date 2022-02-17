@@ -21,7 +21,9 @@ void	check(t_data *data, int ac, char **av)
 		data->i++;
 	}
 	check_valid(data);
-	if (check_sort(data) > 0)
+	if (check_sort(data) == 0)
+		//печатаем
+	else if (check_sort2(data) == 0)
 		//печатаем
 	else
 		//сортируем

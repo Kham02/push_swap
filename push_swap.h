@@ -16,12 +16,14 @@ typedef struct s_data
 	char	*str2;
 	int		*str_int;
 	int		size_a;
+	int		size_b;
 	int		i;
 	int		j;
 	int		min;
 	int		max;
 	int		mid;
 	int		next_order;
+	int		val_bub;
 	
 }t_data;
 
@@ -44,5 +46,5 @@ int		push_swap_atoi(t_data *data, unsigned int n, int s);
 char	error(t_data *data);
 void	free(char **str);
 int		check_sort(t_data *data);
-
+int		check_sort2(t_data *data);
 #endif

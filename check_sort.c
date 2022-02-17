@@ -2,7 +2,7 @@
 
 int	check_sort(t_data *data)
 {
-	data->a_stack->val = data->str_int;
+	data->str_int = data->a_stack->val;
 	data->i = 1;
 	while (data->i <= data->size_a)
 	{
@@ -10,5 +10,16 @@ int	check_sort(t_data *data)
 			return(1);
 		data->i++;
 	}
-	return(0;)
+	return(0);
+}
+
+int	check_sort2(t_data *data)
+{
+	while (data->i > 0)
+	{
+		if (data->str_int[data->i - 1] < data->str_int[data->i])
+			return(1);
+		data->i--;
+	}
+	return(0);
 }
