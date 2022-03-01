@@ -24,16 +24,16 @@ typedef struct s_data
 	int		mid;
 	int		next_order;
 	int		val_bub;
-	
+	int		count;
 }t_data;
 
 typedef struct s_list
 {
-	int	val;
-	int	order;
-	int	flag;
-	int	*next;
-	int	*prev;
+	int				val;
+	int				order;
+	int				flag;
+	struct s_list	*next;
+	// struct s_list	*prev;
 }t_list;
 
 
@@ -44,7 +44,7 @@ void	values(t_data *data);
 void	check_valid(t_data *data);
 int		push_swap_atoi(t_data *data, unsigned int n, int s);
 char	error(t_data *data);
-void	free(char **str);
+void	free2arr(char **str);
 int		check_sort(t_data *data);
 int		check_sort2(t_data *data);
 #endif

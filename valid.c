@@ -28,7 +28,7 @@ static void	mp(t_data *data)
 	{
 		if (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
 		{
-			data->j = data->i;
+			// data->j = data->i;
 			while (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
 				data->i++;
 			data->a_stack->val = push_swap_atoi(data, 0, 1);

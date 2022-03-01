@@ -7,7 +7,12 @@ char	error(t_data *data)
 	return(0);
 }
 
-void	free(char **str)
+void	free_all(t_data *data)
+{
+	
+}
+
+void	free2arr(char **str)
 {
 	int	i;
 

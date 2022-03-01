@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	search_med(t_data *data)
+void	search_mid(t_data *data)
 {
 
 }

@@ -2,14 +2,13 @@
 
 void	values(t_data *data)
 {
-	data->i = 0;
+	data->i = 2;
 	data->str = ft_strdup("");
 	data->min = 0;
 	data->mid = 0;
 	data->max = 0;
 	data->next_order = 0;
-	data->a_stack->next = data->a_stack;
-	data->a_stack->prev = data->a_stack;
+	data->a_stack->next = NULL;
 }
 
 void	check(t_data *data, int ac, char **av)
@@ -23,10 +22,10 @@ void	check(t_data *data, int ac, char **av)
 	check_valid(data);
 	if (check_sort(data) == 0)
 		//печатаем
-	else if (check_sort2(data) == 0)
-		//печатаем
 	else
-		//сортируем
+	{
+		if (data->size_a <)
+	}
 }
 
 int	main(int ac ,char **av)
