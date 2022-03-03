@@ -2,7 +2,7 @@
 #define PUSH_SWAP_H
 
 #include "../Libft/libft.h"
-#include "../gnl_nb/get_next_line.h"
+// #include "../gnl_nb/get_next_line.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -33,7 +33,6 @@ typedef struct s_list
 	int				order;
 	int				flag;
 	struct s_list	*next;
-	// struct s_list	*prev;
 }t_list;
 
 

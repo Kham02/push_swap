@@ -14,3 +14,8 @@ void	qs(t_data *data)
 	}
 	
 }
+
+void	sort_b(t_data *data)
+{
+	
+}

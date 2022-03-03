@@ -2,9 +2,9 @@
 
 void	bub(t_data *data)
 {
-	data->str_int = data->b_stack->val;
+	data->str_int = data->a_stack->val;
 	data->i = 1;
-	while (data->i <= data->size_b)
+	while (data->i <= data->size_a)
 	{
 		if (data->str_int[data->i - 1] > data->str_int[data->i])
 		{
