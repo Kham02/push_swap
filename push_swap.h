@@ -2,7 +2,6 @@
 #define PUSH_SWAP_H
 
 #include "../Libft/libft.h"
-// #include "../gnl_nb/get_next_line.h"
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -22,6 +21,7 @@ typedef struct s_data
 	int		min;
 	int		max;
 	int		mid;
+	int		f;
 	int		next_order;
 	int		val_bub;
 	int		count;
@@ -33,6 +33,7 @@ typedef struct s_list
 	int				order;
 	int				flag;
 	struct s_list	*next;
+	struct s_list	*prev;
 }t_list;
 
 
@@ -45,5 +46,7 @@ int		push_swap_atoi(t_data *data, unsigned int n, int s);
 char	error(t_data *data);
 void	free2arr(char **str);
 int		check_sort(t_data *data);
-int		check_sort2(t_data *data);
+void	qs(t_data *data);
+void	bub(t_data *data);
+void	search_mid(t_data *data);
 #endif

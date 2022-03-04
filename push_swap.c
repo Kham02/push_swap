@@ -24,7 +24,11 @@ void	check(t_data *data, int ac, char **av)
 		//печатаем
 	else
 	{
-		if (data->size_a <)
+		bub(t_data *data);
+		if (data->size_a <= 100)
+			sort_min(t_data *data);
+		else
+			qs(t_data *data);
 	}
 }
 

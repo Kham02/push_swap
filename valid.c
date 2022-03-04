@@ -4,7 +4,12 @@ static void	null_null(t_data *data)
 {
 	data->j = 0;
 	data->i = 0;
-	data->size = 0;
+	data->size_a = 0;
+	data->size_b = 0;
+	data->next_order = 1;
+	data->a_stack->next = data->a_stack;
+	data->a_stack->prev = data->a_stack;
+	data->stack = NULL;
 	data->a_stack->order = 0;
 	data->a_stack->flag = 0;
 }
@@ -28,7 +33,6 @@ static void	mp(t_data *data)
 	{
 		if (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
 		{
-			// data->j = data->i;
 			while (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
 				data->i++;
 			data->a_stack->val = push_swap_atoi(data, 0, 1);
