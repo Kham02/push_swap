@@ -47,6 +47,8 @@ char	error(t_data *data);
 void	free2arr(char **str);
 int		check_sort(t_data *data);
 void	qs(t_data *data);
+void	insertion_sort(t_data *data);
 void	bub(t_data *data);
 void	search_mid(t_data *data);
+int		check_size_stack(t_list *stack);
 #endif

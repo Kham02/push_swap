@@ -14,3 +14,8 @@ void	search_max(t_data *data)
 {
 	
 }
+
+int	check_size_stack(t_list *stack)
+{
+	
+}
