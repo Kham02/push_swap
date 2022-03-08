@@ -4,7 +4,7 @@ void	insertion_sort(t_data *data)
 {
 	data->i = 0;
 	data->j = 0
-	data->size_a = check_size_stack(data->a_stack);
+	data->size_a = ft_lstsize(data->a_stack);
 	while (data->i <= data->size_a)
 	{
 		data->j = data->i;

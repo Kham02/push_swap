@@ -21,7 +21,7 @@ void	recursion_b(t_data *data)
 	data->mid = (data->max - data->next_order) / 2 + data->next_order;
 	data->i = 0;
 	sort_b(data);
-	data->size_b = check_size_stack(data->b_stack);
+	data->size_b = ft_lstsize(data->b_stack);
 	if (data->size_b > 0)
 	{
 		sort_b(data);
@@ -32,7 +32,7 @@ void	recursion_b(t_data *data)
 
 void	sort_b(t_data *data)
 {
-	data->size_b = check_size_stack(data->b_stack);
+	data->size_b = ft_lstsize(data->b_stack);
 	while (data->i < data->size_b)
 	{
 		if (data->b_stack->order > data->mid)
@@ -67,7 +67,7 @@ void	sort_a(t_data *data)
 		else
 			PUSH_B;
 	}
-	data->size_b = check_size_stack(data->b_stack);
+	data->size_b = ft_lstsize(data->b_stack);
 	if (data->size_b > 0)
 	{
 		search_mid(data);
