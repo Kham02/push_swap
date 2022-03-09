@@ -23,19 +23,17 @@ void	check_valid(t_data *data)
 		data->i++;
 	if (data->str[data->i] != '\0')
 		error(data);
-	mp(data);
+	write_stack(data);
 }
 
-static void	mp(t_data *data)
+static void	write_stack(t_data *data)
 {
 	null_null(data);
 	while (data->str[data->i])
 	{
 		if (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
 		{
-			while (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
-				data->i++;
-			data->a_stack->val = push_swap_atoi(data, 0, 1);
+			ft_lstadd_back(data->a_stack, ft_lstnew((int *)push_swap_atoi(data, 0, 1)));
 			data->size_a++;
 		}
 		data->i++;

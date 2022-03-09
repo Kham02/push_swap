@@ -12,7 +12,7 @@ void	qs(t_data *data)
 			ROTATE_A;
 		data->i++;
 	}
-	sort_b(t_data *data);
+	recursion_b(t_data *data);
 }
 
 void	recursion_b(t_data *data)
@@ -20,6 +20,7 @@ void	recursion_b(t_data *data)
 	data->max = data->mid;
 	data->mid = (data->max - data->next_order) / 2 + data->next_order;
 	data->i = 0;
+	data->f = 0;
 	sort_b(data);
 	data->size_b = ft_lstsize(data->b_stack);
 	if (data->size_b > 0)
@@ -35,22 +36,14 @@ void	sort_b(t_data *data)
 	data->size_b = ft_lstsize(data->b_stack);
 	while (data->i < data->size_b)
 	{
-		if (data->b_stack->order > data->mid)
+		if (data->b_stack->order == data->next_order)
 		{
-			data->b_stack->flag = data->f;
+			PUSH_A;
 			ROTATE_A;
+			data->next_order++;
 		}
 		else
-		{
-			if (data->b_stack->order == data->next_order)
-			{
-				PUSH_A;
-				ROTATE_A;
-				data->next_order++;
-			}
-			else
-				ROTATE_B;
-		}
+			ROTATE_B;
 		data->i++;
 	}
 }

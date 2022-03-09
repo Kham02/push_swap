@@ -25,7 +25,7 @@ void	check(t_data *data, int ac, char **av)
 	else
 	{
 		bub(t_data *data);
-		if (data->size_a <= 100)
+		if (data->size_a <= 5)
 			sort_min(t_data *data);
 		else
 			qs(t_data *data);
