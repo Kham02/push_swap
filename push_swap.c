@@ -20,7 +20,7 @@ void	check(t_data *data, int ac, char **av)
 		data->i++;
 	}
 	check_valid(data);
-	if (check_sort(data) == 0)
+	if (check_sort(data) == 0 || data->size_a <= 1)
 		//печатаем
 	else
 	{

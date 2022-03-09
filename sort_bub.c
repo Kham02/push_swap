@@ -34,4 +34,5 @@ void	order(t_data *data)
 		data->stack = data->stack->next;
 		data->i++;
 	}
+	data->b_stack->order = data->stack->order;
 }
