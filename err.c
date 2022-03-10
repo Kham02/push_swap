@@ -2,7 +2,7 @@
 
 char	error(t_data *data)
 {
-	//напечатать Error
+	write(1, "Error\n", 6);
 	exit(0);
 	return(0);
 }

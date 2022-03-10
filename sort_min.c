@@ -19,7 +19,7 @@
 void	sort_two(t_data *data)
 {
 	if (data->a_stack->val > data->a_stack->next->val)
-		SWAP_A;
+		sa(data);
 }
 
 void	sort_els(t_data *data)
@@ -36,17 +36,17 @@ void	sort_els(t_data *data)
 	if (ft_lstsize(data->a_stack) != 3 || (a < b && b < c))
 		return ;
 	if ((a < b && b > c && a > c) || (a > b && b < c && a < c))
-		SWAP_A;
+		sa(data);
 	else if ((a < b && b > c && a < c))
-		ROTATE_A;
+		ra(data);
 	a = data->a_stack->val;
 	b = data->a_stack->next->val;
 	c = ft_lstlast(data->a_stack)->next;
 	if ((a > b && b < c && a > c) || (a > b && b > c && a > c))
 	{
-		ra(stack_a);
+		ra(data);
 		if (a > b && b > c && a > c)
-			sa(stack_a);
+			sa(data);
 	}
 }
 
@@ -62,10 +62,10 @@ void	sort_min(t_data *data)
 			if (data->a_stack->val > 2)
 			{
 				i++;
-				PUSH_B;
+				pb(data);
 			}
 			else
-				ROTATE_A;
+				ra(data);
 		}
 	}
 	sort_3_els(data);

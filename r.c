@@ -38,7 +38,6 @@ void	rr(t_data *data)
 	list->next->next = NULL;
 	data->a_stack = data->a_stack->next;
 	ft_lstlast(data->a_stack)->next = list->next;
-	free_list(list);
 	list = ft_lstlast(data->b_stack);
 	list->next = data->b_stack;
 	list->next->next = NULL;
