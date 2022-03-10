@@ -33,7 +33,7 @@ typedef struct s_list
 	int				order;
 	int				flag;
 	struct s_list	*next;
-	struct s_list	*prev;
+	// struct s_list	*prev;
 }t_list;
 
 
