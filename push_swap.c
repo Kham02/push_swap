@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 17:10:14 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 22:39:47 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	values(t_data *data)
 	data->mid = 0;
 	data->max = 0;
 	data->next_order = 0;
-	data->a_stack.next = NULL;
+	data->a_stack->next = NULL;
 }
 
 void	check(t_data *data, int ac, char **av)

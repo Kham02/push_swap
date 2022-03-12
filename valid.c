@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 17:41:22 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 22:30:28 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ static void	null_null(t_data *data)
 	data->size_a = 0;
 	data->size_b = 0;
 	data->next_order = 1;
-	data->a_stack.next = data->a_stack;
+	data->a_stack->next = data->a_stack;
 	data->stack = NULL;
-	data->a_stack.order = 0;
-	data->a_stack.flag = 0;
+	data->a_stack->order = 0;
+	data->a_stack->flag = 0;
 }
 
 void	check_valid(t_data *data)
@@ -76,7 +76,7 @@ int	push_swap_atoi(t_data *data, unsigned int n, int s)
 int	check_sort(t_data *data)
 {
 	data->i = 0;
-	while (data->i <= ft_lstsize(data->size_a))
+	while (data->i <= size_stack(data->a_stack))
 	{
 		if (data->a_stack->val > data->a_stack->next->val)
 			return(1);

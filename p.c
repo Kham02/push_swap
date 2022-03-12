@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 13:59:57 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 17:35:55 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 22:36:44 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 //сверху а наверх б
 void	pa(t_data *data)
 {
-	t_listp	list1;
-	t_listp	list2;
+	t_listp	*list1;
+	t_listp	*list2;
 
 	list1 = data->a_stack;
 	list2 = data->b_stack;
@@ -31,8 +31,8 @@ void	pa(t_data *data)
 //сверху б наверх а
 void	pb(t_data *data)
 {
-	t_listp	list1;
-	t_listp	list2;
+	t_listp	*list1;
+	t_listp	*list2;
 
 	list1 = data->a_stack;
 	list2 = data->b_stack;

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:27 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 17:33:38 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 22:35:35 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 //снизу наверх
 void	rra(t_data *data)
 {
-	t_listp	list1;
-	t_listp	list2;
+	t_listp	*list1;
+	t_listp	*list2;
 
 	list1 = data->a_stack;
 	while (list->next->next)
@@ -33,8 +33,8 @@ void	rra(t_data *data)
 //снизу наверх
 void	rrb(t_data *data)
 {
-	t_listp	list1;
-	t_listp	list2;
+	t_listp	*list1;
+	t_listp	*list2;
 
 	list1 = data->b_stack;
 	while (list->next->next)
@@ -51,8 +51,8 @@ void	rrb(t_data *data)
 //rra rrb
 void	rrr(t_data *data)
 {
-	t_listp	list1;
-	t_listp	list2;
+	t_listp	*list1;
+	t_listp	*list2;
 
 	list1 = data->a_stack;
 	while (list->next->next)

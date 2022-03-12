@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:30 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 17:33:48 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 22:35:21 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 //в а поменять местами верхние два элемента
 void	sa(t_data *data)
 {
-	t_listp	list1;
-	t_listp	list2;
+	t_listp	*list1;
+	t_listp	*list2;
 
 	list1 = data->a_stack;
 	list2 = data->a_stack->next;
@@ -31,8 +31,8 @@ void	sa(t_data *data)
 //в б поменять местами верхние два элемента
 void	sb(t_data *data)
 {
-	t_listp	list1;
-	t_listp	list2;
+	t_listp	*list1;
+	t_listp	*list2;
 
 	list1 = data->b_stack;
 	list2 = data->b_stack->next;

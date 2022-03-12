@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 15:44:47 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 23:51:31 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	sort_stack_bub(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i <= ft_lstsize(data->a_stack))
+	while (i <= size_stack(data->a_stack))
 	{
-		if (data->a_stack.val > data->a_stack->val->next)
+		if (data->a_stack->val > data->a_stack->next->val)
 			sa(data);
 		else
 			ra(data);
@@ -27,58 +27,20 @@ void	sort_stack_bub(t_data *data)
 	}
 }
 
-// void	sort_two(t_data *data)
-// {
-// 	if (data->a_stack->val > data->a_stack->next->val)
-// 		sa(data);
-// }
+int	size_stack(t_listp *lst)
+{
+	int	count;
 
-// void	sort_els(t_data *data)
-// {
-// 	int	a;
-// 	int	b;
-// 	int	c;
+	count = 0;
+	while (lst)
+	{
+		lst->next;
+		count++;
+	}
+	return (count);
+}
 
-// 	if (data->size_a == 2)
-// 		sort_two(data);
-// 	a = data->a_stack->val;
-// 	b = data->a_stack->next->val;
-// 	c = ft_lstlast(data->a_stack)->next;
-// 	if (ft_lstsize(data->a_stack) != 3 || (a < b && b < c))
-// 		return ;
-// 	if ((a < b && b > c && a > c) || (a > b && b < c && a < c))
-// 		sa(data);
-// 	else if ((a < b && b > c && a < c))
-// 		ra(data);
-// 	a = data->a_stack->val;
-// 	b = data->a_stack->next->val;
-// 	c = ft_lstlast(data->a_stack)->next;
-// 	if ((a > b && b < c && a > c) || (a > b && b > c && a > c))
-// 	{
-// 		ra(data);
-// 		if (a > b && b > c && a > c)
-// 			sa(data);
-// 	}
-// }
-
-// void	sort_min(t_data *data)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	if (data->size_a > 3)
-// 	{
-// 		while (i < data->size_a - 2)
-// 		{
-// 			if (data->a_stack->val > 2)
-// 			{
-// 				i++;
-// 				pb(data);
-// 			}
-// 			else
-// 				ra(data);
-// 		}
-// 	}
-// 	sort_3_els(data);
-// 	sort_4_el(data);
-// }
+void	lstnew(t_listp *lst)
+{
+	
+}

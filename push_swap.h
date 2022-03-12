@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 17:51:11 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 22:37:12 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ typedef struct s_listp
 	int				val;
 	int				order;
 	int				flag;
-	struct s_list	*next;
+	struct s_listp	*next;
 }t_listp;
 
 typedef struct s_data
 {
-	t_listp	a_stack;
-	t_listp	b_stack;
-	t_listp	stack;
+	t_listp	*a_stack;
+	t_listp	*b_stack;
+	t_listp	*stack;
 	char	*str;
 	char	*str2;
 	int		*str_int;
@@ -59,7 +59,7 @@ void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
 
-int		main(int ac ,char **av);
+int	size_stack(t_listp *lst);
 void	check(t_data *data, int ac, char **av);
 void	values(t_data *data);
 void	check_valid(t_data *data);
@@ -77,6 +77,6 @@ void	insertion_sort(t_data *data);
 void	bub(t_data *data);
 void	search_mid(t_data *data);
 int		check_size_stack(t_listp *stack);
-void	free_list(t_listp list);
+void	free_list(t_listp *list);
 void	end(t_data *data);
 #endif
