@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   valid.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
+/*   Updated: 2022/03/12 15:38:34 by estrong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	null_null(t_data *data)
@@ -7,11 +19,10 @@ static void	null_null(t_data *data)
 	data->size_a = 0;
 	data->size_b = 0;
 	data->next_order = 1;
-	data->a_stack->next = data->a_stack;
-	data->a_stack->prev = data->a_stack;
+	data->a_stack.next = data->a_stack;
 	data->stack = NULL;
-	data->a_stack->order = 0;
-	data->a_stack->flag = 0;
+	data->a_stack.order = 0;
+	data->a_stack.flag = 0;
 }
 
 void	check_valid(t_data *data)
@@ -26,7 +37,7 @@ void	check_valid(t_data *data)
 	write_stack(data);
 }
 
-static void	write_stack(t_data *data)
+void	write_stack(t_data *data)
 {
 	null_null(data);
 	while (data->str[data->i])
@@ -60,4 +71,17 @@ int	push_swap_atoi(t_data *data, unsigned int n, int s)
 			error(data);
 	}
 	return(n * s);
+}
+
+int	check_sort(t_data *data)
+{
+	data->str_int = data->a_stack->val;
+	data->i = 1;
+	while (data->i <= data->size_a)
+	{
+		if (data->str_int[data->i - 1] > data->str_int[data->i])
+			return(1);
+		data->i++;
+	}
+	return(0);
 }

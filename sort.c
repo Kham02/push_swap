@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/12 14:00:45 by estrong           #+#    #+#             */
+/*   Updated: 2022/03/12 15:42:21 by estrong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	qs(t_data *data)
@@ -6,7 +18,7 @@ void	qs(t_data *data)
 	data->i = 0;
 	while (data->i <= data->size_a)
 	{
-		if (data->a_stack->val <= data->mid)
+		if (data->a_stack.val <= data->mid)
 			pb(data);
 		else
 			ra(data);
@@ -36,7 +48,7 @@ void	sort_b(t_data *data)
 	data->size_b = ft_lstsize(data->b_stack);
 	while (data->i < data->size_b)
 	{
-		if (data->b_stack->order == data->next_order)
+		if (data->b_stack.order == data->next_order)
 		{
 			pa(data);
 			ra(data);
@@ -52,7 +64,7 @@ void	sort_a(t_data *data)
 {
 	while (data->a_stack->flag > 0)
 	{
-		if (data->a_stack->flag == data->next_order)
+		if (data->a_stack.flag == data->next_order)
 		{
 			ra(data);
 			data->next_order++;
@@ -66,4 +78,9 @@ void	sort_a(t_data *data)
 		search_mid(data);
 		recursion_b(data);
 	}
+}
+
+void	search_mid(t_data *data)
+{
+
 }
