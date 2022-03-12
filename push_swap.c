@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 14:52:25 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 17:10:14 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,5 @@ int	main(int ac ,char **av)
 	// if (!(data->a_stack = (t_list *)malloc(sizeof(t_list))))
 		error(data);
 	check(data, ac, av);
+	return (0);
 }

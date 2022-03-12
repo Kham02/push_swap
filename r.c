@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:20 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 14:00:22 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 17:33:27 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //сверху вниз
 void	ra(t_data *data)
 {
-	t_list	list;
+	t_listp	list;
 
 	list = ft_lstlast(data->a_stack);
 	list->next = data->a_stack;
@@ -29,7 +29,7 @@ void	ra(t_data *data)
 //сверху вниз
 void	rb(t_data *data)
 {
-	t_list	list;
+	t_listp	list;
 
 	list = ft_lstlast(data->b_stack);
 	list->next = data->b_stack;
@@ -43,7 +43,7 @@ void	rb(t_data *data)
 //ra rb
 void	rr(t_data *data)
 {
-	t_list	list;
+	t_listp	list;
 
 	list = ft_lstlast(data->a_stack);
 	list->next = data->a_stack;

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:45 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 15:42:21 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/12 17:30:42 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	sort_a(t_data *data)
 	data->size_b = ft_lstsize(data->b_stack);
 	if (data->size_b > 0)
 	{
-		search_mid(data);
+		// search_mid(data);
 		recursion_b(data);
 	}
 }
