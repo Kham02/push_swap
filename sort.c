@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:45 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 22:45:27 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/13 20:00:17 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	qs(t_data *data)
 			ra(data);
 		data->i++;
 	}
-	recursion_b(*data);
+	recursion_b(data);
 }
 
 void	recursion_b(t_data *data)
@@ -45,6 +45,9 @@ void	recursion_b(t_data *data)
 
 void	sort_b(t_data *data)
 {
+	print(data->a_stack);
+	printf("-----stack_b-----\n");
+	print(data->b_stack);
 	data->size_b = size_stack(data->b_stack);
 	while (data->i < data->size_b)
 	{

@@ -6,15 +6,16 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 22:37:12 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/13 19:58:58 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-#include "../Libft/libft.h"
+#include "Libft/libft.h"
 #include <unistd.h>
+#include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
 
@@ -59,7 +60,10 @@ void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
 
-int	size_stack(t_listp *lst);
+int		size_stack(t_listp *lst);
+t_listp	*lst_new(int val);
+t_listp	*lst_last(t_listp *lst);
+void	lst_add_back(t_listp *lst, t_listp *new_lst);
 void	check(t_data *data, int ac, char **av);
 void	values(t_data *data);
 void	check_valid(t_data *data);
@@ -76,7 +80,12 @@ void	sort_stack_bub(t_data *data);
 void	insertion_sort(t_data *data);
 void	bub(t_data *data);
 void	search_mid(t_data *data);
-int		check_size_stack(t_listp *stack);
+// int		check_size_stack(t_listp *stack);
 void	free_list(t_listp *list);
 void	end(t_data *data);
+
+// DEBUG ###################
+void	print(t_listp *list);
+
+
 #endif

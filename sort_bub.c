@@ -6,35 +6,39 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:38 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/12 23:48:52 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/13 14:44:35 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// void	bub(t_data *data) 
-// {
-// 	// data->str_int = data->a_stack->val;
-// 	data->i = 1;
-// 	while (data->i <= data->size_b)
-// 	{
-// 		if (data->str_int[data->i - 1] > data->str_int[data->i])
-// 		{
-// 			data->val_bub = data->str_int[data->i - 1];
-// 			data->str_int[data->i - 1] = data->str_int[data->i];
-// 			data->str_int[data->i] = data->val_bub;
-// 			if (data->str_int[data->i - 1] == data->str_int[data->i])
-// 				error(data);
-// 		}
-// 		data->i++;
-// 	}
-// }
+void	bub(t_data *data) 
+{
+	t_listp	*stack;
+
+	stack = data->a_stack;
+	data->i = 0;
+	while (data->i < size_stack(stack))
+	{
+		if (stack->val > stack->next->val)
+		{
+			data->val_bub = stack->val;
+			stack->val = stack->next->val;
+			stack->next->val = data->val_bub;
+			if (stack->val == stack->next->val)
+				error(data);
+		}
+		data->i++;
+	}
+	// write(1, "b\n", 2);
+	data->stack = stack;
+}
 
 void	order(t_data *data)
 {
 	data->stack = data->a_stack;
 	data->i = 0;
-	while (data->i < data->size_a)
+	while (data->i < size_stack(data->a_stack))
 	{
 		data->j = 0;
 		while (data->j < data->size_a)
