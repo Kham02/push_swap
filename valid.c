@@ -33,7 +33,6 @@ int	push_swap_atoi(char *str, unsigned int n, int s)
 		if ((n > 2147483647 && s == 1) || (n > 2147483648 && s == -1))
 			error(data);
 	}
-	// ft_putnbr_fd(n * s, 1);
 	return(n * s);
 }
 
@@ -45,7 +44,6 @@ int	check_sort(t_data *data)
 	{
 		if (data->a_stack->val > data->a_stack->next->val)
 			return(1);
-		// printf("%d\n", data->a_stack->val);
 		data->a_stack = data->a_stack->next;
 		data->i++;
 	}
@@ -70,7 +68,6 @@ void	bub(t_data *data)
 		}
 		data->i++;
 	}
-	// write(1, "b\n", 2);
 	data->stack = stack;
 	order(data);
 }

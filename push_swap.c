@@ -14,13 +14,8 @@
 
 void	values(t_data *data)
 {
-// 	data->i = 1;
-// 	data->str = ft_strdup("");
-// 	data->min = 0;
 	data->mid = 0;
-// 	data->max = 0;
 	data->next_order = 0;
-// 	data->a_stack->next = NULL;
 }
 
 void	check(t_data *data, int ac, char *av)
@@ -36,20 +31,16 @@ void	check(t_data *data, int ac, char *av)
 		lst_add_back(data->a_stack, lst_new(push_swap_atoi(av[i], 0, 1)));
 		i++;
 	}
-	// check_valid(data);
 	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 1)
 		end(data);
 	else
 	{
 		bub(data);
 		if (size_stack(data->a_stack) <= 5)
-		{
-			// sort_stack_bub(data);
-		}
+			sort_min(data);
 		else
 			qs(data);
 	}
-	// write(1, "r\n", 2);
 	end(data);
 }
 
