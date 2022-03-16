@@ -24,7 +24,7 @@ void	qs(t_data *data)
 			ra(data);
 		data->i++;
 	}
-	recursion_b(data);
+	start_sort_b(data);
 }
 
 void	start_sort_b(t_data *data)
@@ -79,7 +79,7 @@ void	sort_a(t_data *data)
 	if (data->size_b > 0)
 	{
 		// search_mid(data);
-		recursion_b(data);
+		start_sort_b(data);
 	}
 }
 
