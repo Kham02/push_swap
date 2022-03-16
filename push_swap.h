@@ -71,7 +71,7 @@ void	sort_3_el(t_data *data);
 void	sort_4_el(t_data *data);
 void	sort_5_el(t_data *data);
 void	qs(t_data *data);
-void	recursion_b(t_data *data);
+void	start_sort_b(t_data *data);
 void	sort_b(t_data *data);
 void	sort_a(t_data *data);
 void	search_mid(t_data *data);

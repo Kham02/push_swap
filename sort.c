@@ -27,7 +27,7 @@ void	qs(t_data *data)
 	recursion_b(data);
 }
 
-void	recursion_b(t_data *data)
+void	start_sort_b(t_data *data)
 {
 	data->max = data->mid;
 	data->mid = (data->max - data->next_order) / 2 + data->next_order;
