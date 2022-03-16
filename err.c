@@ -17,6 +17,7 @@ char	error(t_data *data)
 	free_list(data->a_stack);
 	free_list(data->b_stack);
 	free_list(data->stack);
+	data = NULL;
 	write(1, "Error\n", 6);
 	exit(0);
 	return(0);
@@ -24,17 +25,12 @@ char	error(t_data *data)
 
 void	end(t_data *data)
 {
+	free_list(data->a_stack);
+	free_list(data->b_stack);
+	free_list(data->stack);
 	data = NULL;
-// 	free_list(data->a_stack);
-// 	free_list(data->b_stack);
-// 	free_list(data->stack);
 	exit(1);
 }
-
-// void	free_all(t_data *data)
-// {
-	
-// }
 
 void	free_list(t_listp *list)
 {
@@ -49,17 +45,3 @@ void	free_list(t_listp *list)
 		r = fr;
 	}
 }
-
-// void	free2arr(char **str)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		free(str[i]);
-// 		str[i] = NULL;
-// 		i++;
-// 	}
-// 	free(str[i]);
-// }

@@ -32,9 +32,6 @@ typedef struct s_data
 	t_listp	*a_stack;
 	t_listp	*b_stack;
 	t_listp	*stack;
-	char	*str;
-	char	*str2;
-	int		*str_int;
 	int		size_a;
 	int		size_b;
 	int		i;
@@ -44,7 +41,6 @@ typedef struct s_data
 	int		mid;
 	int		f;
 	int		next_order;
-	int		val_bub;
 	int		count;
 }t_data;
 
@@ -66,26 +62,24 @@ t_listp	*lst_last(t_listp *lst);
 void	lst_add_back(t_listp *lst, t_listp *new_lst);
 void	check(t_data *data, int ac, char **av);
 void	values(t_data *data);
-void	check_valid(t_data *data);
-void	write_stack(t_data *data);
 int		push_swap_atoi(t_data *data, unsigned int n, int s);
-char	error(t_data *data);
-// void	free2arr(char **str);
+void	bub(t_data *data);
 int		check_sort(t_data *data);
+void	sort_min(t_data *data);
+void	sort_2_el(t_data *data);
+void	sort_3_el(t_data *data);
+void	sort_4_el(t_data *data);
+void	sort_5_el(t_data *data);
 void	qs(t_data *data);
 void	recursion_b(t_data *data);
 void	sort_b(t_data *data);
 void	sort_a(t_data *data);
-void	sort_stack_bub(t_data *data);
-void	insertion_sort(t_data *data);
-void	bub(t_data *data);
 void	search_mid(t_data *data);
-// int		check_size_stack(t_listp *stack);
 void	free_list(t_listp *list);
+char	error(t_data *data);
 void	end(t_data *data);
 
-// DEBUG ###################
+//############### DEBUG ###################
 void	print(t_listp *list);
-
 
 #endif

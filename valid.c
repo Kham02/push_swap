@@ -12,71 +12,26 @@
 
 #include "push_swap.h"
 
-// static void	null_null(t_data *data)
-// {
-// 	data->j = 0;
-// 	data->i = 0;
-// 	data->size_a = 0;
-// 	data->size_b = 0;
-// 	data->next_order = 1;
-	// data->stack = NULL;
-	// data->a_stack->val = 0;
-	// data->a_stack->order = 0;
-	// data->a_stack->flag = 0;
-	// data->a_stack->next = NULL;
-// }
-
-void	check_valid(t_data *data)
+int	push_swap_atoi(char *str, unsigned int n, int s)
 {
-	data->i = 0;
-	while (data->str[data->i] || ft_isdigit(data->str[data->i]) || data->str[data->i] == 9 || 
-		data->str[data->i] == 13 || data->str[data->i] == 32 || data->str[data->i] == ',' || 
-		data->str[data->i] == '+' || data->str[data->i] == '-')
-		data->i++;
-	if (data->str[data->i] != '\0')
-		error(data);
-	// write(1, "lol\n", 4);
-	write_stack(data);
-}
+	int	i;
 
-void	write_stack(t_data *data)
-{
-	// null_null(data);
-			// write(1, "lol\n", 4);
-	printf("%s\n", data->str);
-	while (data->str[data->i])
-	{
-		if (ft_isdigit(data->str[data->i]) || data->str[data->i] == '-' || data->str[data->i] == '+')
-		{
-			data->j = data->i;
-			lst_add_back(data->a_stack, lst_new(push_swap_atoi(data, 0, 1)));
-		}
-		data->i++;
-	}
-	// print(data->a_stack);
-	data->str = ft_strdup("");
-}
-
-int	push_swap_atoi(t_data *data, unsigned int n, int s)
-{
-	// printf("\n%d\n", data->str[data->j]);
-	while ((data->str[data->j] > 8 && data->str[data->j] < 14) || data->str[data->j] == 32 || data->str[data->j] == ',')
-		data->j++;
-	if (data->str[data->j] == '-')
+	i = 0;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
 	{
 		data->j++;
 		s = -1;
 	}
-	if (data->str[data->j] == '+' && s == 1)
-		data->j++;
-	while (data->str[data->j] > 47 && data->str[data->j] < 58)
+	if (str[i] == '+' && s == 1)
+		i++;
+	while (str[i] > 47 && str[i] < 58)
 	{
-		n = n * 10 + (data->str[data->j] - 48);
-		data->j++;
+		n = n * 10 + (str[i] - 48);
+		i++;
 		if ((n > 2147483647 && s == 1) || (n > 2147483648 && s == -1))
 			error(data);
-		if (!ft_isdigit(data->str[data->i]) || data->str[data->i] != '-' || data->str[data->i] != '+')
-			break ;
 	}
 	// ft_putnbr_fd(n * s, 1);
 	return(n * s);
@@ -95,4 +50,51 @@ int	check_sort(t_data *data)
 		data->i++;
 	}
 	return(0);
+}
+
+void	bub(t_data *data) 
+{
+	t_listp	*stack;
+
+	stack = data->a_stack;
+	data->i = 0;
+	while (data->i < size_stack(stack))
+	{
+		if (stack->val > stack->next->val)
+		{
+			data->val_bub = stack->val;
+			stack->val = stack->next->val;
+			stack->next->val = data->val_bub;
+			if (stack->val == stack->next->val)
+				error(data);
+		}
+		data->i++;
+	}
+	// write(1, "b\n", 2);
+	data->stack = stack;
+	order(data);
+}
+
+void	order(t_data *data)
+{
+	t_listp	stack2;
+
+	stack2 = data->a_stack;
+	data->i = 0;
+	data->size_a = size_stack(data->a_stack);
+	while (data->i < data->size_a)
+	{
+		data->j = 0;
+		while (data->j < data->size_a)
+		{
+			if (stack2->val == data->stack->val)
+			{
+				data->stack = data->stack->next;
+				data->stack->order = data->j + 1;
+			}
+			data->j++;
+		}
+		stack2 = stack2->next;
+		data->i++;
+	}
 }

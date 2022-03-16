@@ -24,8 +24,6 @@ int	size_stack(t_listp *lst)
 		lst = lst->next;
 		count++;
 	}
-	// ft_putnbr_fd(count, 1);
-	// write (1, "\n", 1);
 	return (count);
 }
 

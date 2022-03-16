@@ -14,35 +14,40 @@
 
 void	values(t_data *data)
 {
-	data->i = 1;
-	data->str = ft_strdup("");
-	data->min = 0;
+// 	data->i = 1;
+// 	data->str = ft_strdup("");
+// 	data->min = 0;
 	data->mid = 0;
-	data->max = 0;
+// 	data->max = 0;
 	data->next_order = 0;
-	// data->a_stack->next = NULL;
+// 	data->a_stack->next = NULL;
 }
 
-void	check(t_data *data, int ac, char **av)
+void	check(t_data *data, int ac, char *av)
 {
+	int	i;
+
+	i = 0;
 	values(data);
-	while (data->i <= ac - 1)
+	while (av[i])
 	{
-		data->str = ft_strjoin(data->str, av[data->i]);
-		data->i++;
+		if (ft_isdigit(av[i]) == 0 || av[i] != 32)
+			error(data);
+		lst_add_back(data->a_stack, lst_new(push_swap_atoi(av[i], 0, 1)));
+		i++;
 	}
-	check_valid(data);
+	// check_valid(data);
 	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 1)
 		end(data);
 	else
 	{
-		// bub(data);
-		// if (size_stack(data->a_stack) <= 5)
-		// {
-		// 	sort_stack_bub(data);
-		// }
-		// else
-		// qs(data);
+		bub(data);
+		if (size_stack(data->a_stack) <= 5)
+		{
+			// sort_stack_bub(data);
+		}
+		else
+			qs(data);
 	}
 	// write(1, "r\n", 2);
 	end(data);
@@ -71,7 +76,7 @@ int	main(int ac ,char **av)
 	if (ac < 2)
 		error(data);
 	// if (!(data->a_stack = (t_listp *)malloc(sizeof(t_listp))))
-	// 	error(data);x
-	check(data, ac, av);
+	// 	error(data);
+	check(data, ac, av[2]);
 	return (0);
 }

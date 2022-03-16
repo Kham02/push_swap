@@ -13,8 +13,7 @@
 NAME	=	push_swap
 
 SRCS	=	push_swap.c	err.c	p.c	r.c	rr.c	s.c	\
-			sort_bub.c	sort_min.c	sort.c	valid.c	\
-			utils_lst.c
+			sort_min.c	sort.c	valid.c	utils_lst.c
 
 OBJ		=	$(patsubst %.c,%.o,$(SRCS))
 
