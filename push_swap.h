@@ -39,7 +39,7 @@ typedef struct s_data
 	int		min;
 	int		max;
 	int		mid;
-	int		f;
+	int		fl;
 	int		next_order;
 	int		count;
 }t_data;

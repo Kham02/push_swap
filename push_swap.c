@@ -14,6 +14,7 @@
 
 void	values(t_data *data)
 {
+	data->max = 0;
 	data->mid = 0;
 	data->next_order = 0;
 }
