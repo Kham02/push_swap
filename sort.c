@@ -26,13 +26,16 @@ void	sort(t_data *data)
 		data->size_a--;
 	}
 	sort_b(data);
+	print(data->a_stack);
+	printf("-----stack_b-----\n");
+	print(data->b_stack);
 }
 
 void	sort_b(t_data *data)
 {
 	data->size_b = size_stack(data->b_stack);
 	data->mid = data->b_stack / 2;
-	while(data->size_b >= 0)
+	while(data->size_b > 0)
 	{
 		if(data->b_stack->order == data->next_order)
 		{
@@ -62,6 +65,26 @@ void	sort_a(t_data *data)
 		else
 			ra(data);
 	}
+	scroll(data);
 	if (size_stack(data->b_stack) > 0)
 		sort_b(data);
+}
+
+void	scroll(t_data *data)
+{
+	data->size_a = size_stack(data->a_stack);
+	data->size_b = size_stack(data->b_stack);
+	while (data->size_a > 0 && data->size_b > 0)
+	{
+		if (data->a_stack->flag != 0 && data->b_stack->order != data->next_order)
+			rr(data);
+		data->size_a--;
+		data->size_b--;
+	}
+	while (data->size_a > 0)
+	{
+		if (data->a_stack->flag != 0)
+			ra(data);
+		data->size_a--;
+	}
 }
