@@ -21,14 +21,11 @@ HEADER	=	push_swap.h
 
 CC		=	gcc
 
-FLAGS	=	-Wall
-# -Wextra -Werror -I$(HEADER)
+FLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
 
 .PHONY :	all clean fclean re
 
 all :	$(NAME)
-
-# $(NAME) : $(OBJ)
 
 $(NAME) : $(OBJ)
 	$(MAKE) -C ./libft
