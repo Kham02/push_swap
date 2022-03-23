@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/13 19:58:58 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/23 18:28:49 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ typedef struct s_data
 	t_listp	*stack;
 	int		size_a;
 	int		size_b;
+	int		*arr;
 	int		i;
 	int		j;
 	int		min;
 	int		max;
 	int		mid;
 	int		fl;
+	int		val_bub;
 	int		next_order;
 	int		count;
 }t_data;
@@ -59,11 +61,13 @@ void	rrr(t_data *data);
 int		size_stack(t_listp *lst);
 t_listp	*lst_new(int val);
 t_listp	*lst_last(t_listp *lst);
-void	lst_add_back(t_listp *lst, t_listp *new_lst);
-void	check(t_data *data, int ac, char **av);
+t_listp	*copy_stack(t_listp *stack);
+void	lst_add_back(t_listp **lst, t_listp *new_lst);
+void	check(t_data *data, char **av);
 void	values(t_data *data);
-int		push_swap_atoi(t_data *data, unsigned int n, int s);
+int		push_swap_atoi(t_data *data, char *str, unsigned int n, int s);
 void	bub(t_data *data);
+void	order(t_data *data);
 int		check_sort(t_data *data);
 void	sort_min(t_data *data);
 void	sort_2_el(t_data *data);
@@ -77,6 +81,8 @@ void	scroll(t_data *data);
 void	free_list(t_listp *list);
 char	error(t_data *data);
 void	end(t_data *data);
+
+void	copy_stack_in_arr(t_data *data, t_listp *lst);
 
 //############### DEBUG ###################
 void	print(t_listp *list);

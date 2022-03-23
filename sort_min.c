@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/13 17:06:23 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/23 12:48:40 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	sort_min(t_data *data)
 
 void	sort_2_el(t_data *data)
 {
-	if (data->a_stack->val > data->a_stack->val->next)
+	t_listp	*lst;
+
+	lst = data->a_stack->next;
+	if (data->a_stack->val > lst->val)
 		sa(data);
 }
 

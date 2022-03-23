@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:45 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/13 20:00:17 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/23 13:08:34 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ void	sort(t_data *data)
 		data->size_a--;
 	}
 	sort_b(data);
-	print(data->a_stack);
-	printf("-----stack_b-----\n");
-	print(data->b_stack);
+	// print(data->a_stack);
+	// printf("-----stack_b-----\n");
+	// print(data->b_stack);
 }
 
 void	sort_b(t_data *data)
 {
 	data->size_b = size_stack(data->b_stack);
-	data->mid = data->b_stack / 2;
+	data->mid = data->size_b / 2;
 	while(data->size_b > 0)
 	{
 		if(data->b_stack->order == data->next_order)

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/13 20:52:19 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/23 17:47:36 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,36 @@
 
 void	values(t_data *data)
 {
+	data->stack = NULL;
+	data->a_stack = NULL;
+	data->b_stack = NULL;
 	data->max = 0;
 	data->mid = 0;
 	data->next_order = 0;
 }
 
-void	check(t_data *data, int ac, char *av)
+void	check(t_data *data, char **av)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	values(data);
 	while (av[i])
 	{
-		if (ft_isdigit(av[i]) == 0 || av[i] != 32)
-			error(data);
-		lst_add_back(data->a_stack, lst_new(push_swap_atoi(av[i], 0, 1)));
+		lst_add_back(&data->a_stack, lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
 		i++;
 	}
 	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 1)
 		end(data);
 	else
 	{
+		// write (1, "3\n", 2);
 		bub(data);
+		print(data->a_stack);
 		if (size_stack(data->a_stack) <= 5)
 			sort_min(data);
 		else
-			qs(data);
+			sort(data);
 	}
 	end(data);
 }
@@ -67,8 +70,6 @@ int	main(int ac ,char **av)
 		error(data);
 	if (ac < 2)
 		error(data);
-	// if (!(data->a_stack = (t_listp *)malloc(sizeof(t_listp))))
-	// 	error(data);
-	check(data, ac, av[2]);
+	check(data, av);
 	return (0);
 }

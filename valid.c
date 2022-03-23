@@ -6,13 +6,13 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/13 21:05:11 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/23 19:52:31 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap_atoi(char *str, unsigned int n, int s)
+int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 {
 	int	i;
 
@@ -21,7 +21,7 @@ int	push_swap_atoi(char *str, unsigned int n, int s)
 		i++;
 	if (str[i] == '-')
 	{
-		data->j++;
+		i++;
 		s = -1;
 	}
 	if (str[i] == '+' && s == 1)
@@ -52,31 +52,120 @@ int	check_sort(t_data *data)
 
 void	bub(t_data *data) 
 {
-	t_listp	*stack;
+	t_listp	*lst;
+	int		size;
 
-	stack = data->a_stack;
+	lst = copy_stack(data->a_stack);
+	size = size_stack(data->stack);
 	data->i = 0;
-	while (data->i < size_stack(stack))
+	while (data->i < size)
 	{
-		if (stack->val > stack->next->val)
+		if (data->stack->val > data->stack->next->val)
 		{
-			data->val_bub = stack->val;
-			stack->val = stack->next->val;
-			stack->next->val = data->val_bub;
-			if (stack->val == stack->next->val)
+			data->val_bub = data->stack->val;
+			data->stack->val = data->stack->next->val;
+			data->stack->next->val = data->val_bub;
+			if (data->stack->val == data->stack->next->val)
 				error(data);
 		}
 		data->i++;
 	}
-	data->stack = stack;
 	order(data);
 }
 
+// void	bub(t_data *data) 
+// {
+// 	t_listp	*stack;
+// 	int		size;
+
+// 	stack = data->a_stack;
+// 	size = size_stack(stack);
+// 	data->i = 0;
+// 	while (data->i < size)
+// 	{
+// 		data->j = 0;
+// 		while (data->j < size)
+// 		{
+// 			if (stack->val > stack->next->val)
+// 			{
+// 				data->val_bub = stack->val;
+// 				stack->val = stack->next->val;
+// 				stack->next->val = data->val_bub;
+// 				if (stack->val == stack->next->val)
+// 					error(data);
+// 			}
+// 			data->j++;
+// 		}
+// 		data->i++;
+// 	}
+// 	// print(data->stack);
+// 	data->stack = stack;
+// 	order(data);
+// }
+
+// void	bub(t_data *data)
+// {
+// 	int		size;
+// 	int		i;
+// 	int		j;
+// 	int		c;
+
+// 	i = 0;
+// 	size = size_stack(data->a_stack);
+// 	copy_stack_in_arr(data, data->a_stack);
+// 	while (i <= size)
+// 	{
+// 		j = 0;
+// 		while (j <= size)
+// 		{
+// 			if (data->arr[i] > data->arr[i + 1])
+// 			{
+// 				c = data->arr[i];
+// 				data->arr[i] = data->arr[i + 1];
+// 				data->arr[i + 1] = c;
+// 			}
+// 			// write(1, &data->arr[j], 1);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// 	order(data);
+// 	// print(data->a_stack);
+// }
+
+// void	order(t_data *data)
+// {
+// 	t_listp	*lst;
+// 	int	i;
+// 	int	j;
+// 	int	size;
+
+// 	i = 0;
+// 	j = 0;
+// 	lst = data->a_stack;
+// 	size = size_stack(data->a_stack);
+// 	while (i <= size)
+// 	{
+// 		j = 0;
+// 		while (j <= size)
+// 		{
+// 			// print(data->a_stack);
+// 			if (data->a_stack->val == data->arr[j])
+// 				data->a_stack->order = j + 1;
+// 			j++;
+// 			data->a_stack = data->a_stack->next;
+// 		}
+// 		i++;
+// 	}
+// 	data->a_stack = lst;
+// }
+
 void	order(t_data *data)
 {
-	t_listp	stack2;
+	t_listp	*stack2;
 
-	stack2 = data->a_stack;
+	stack2 = copy_stack(data->a_stack);
+	print(stack2);
 	data->i = 0;
 	data->size_a = size_stack(data->a_stack);
 	while (data->i < data->size_a)
@@ -87,9 +176,11 @@ void	order(t_data *data)
 			if (stack2->val == data->stack->val)
 			{
 				data->stack = data->stack->next;
-				data->stack->order = data->j + 1;
+				stack2->order = data->j + 1;
+				stack2 = stack2->next;
 			}
 			data->j++;
+			// write (1, "3\n", 2);
 		}
 		stack2 = stack2->next;
 		data->i++;
