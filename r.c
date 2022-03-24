@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:20 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/13 18:52:05 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/24 23:05:07 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ra(t_data *data)
 {
 	t_listp	*list;
-	if (size_stack(data->a_stack) >= 2)
+	if (size_stack(data->a_stack) >= 1)
 	{
 		list = lst_last(data->a_stack);
 		list->next = data->a_stack;

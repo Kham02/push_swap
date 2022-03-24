@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 13:59:57 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/13 19:05:52 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/24 23:15:54 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	pa(t_data *data)
 	t_listp	*list1;
 	t_listp	*list2;
 
-	if (size_stack(data->b_stack) > 0)
+	if (size_stack(data->b_stack) >= 0)
 	{
 		list1 = data->b_stack;
 		list2 = data->a_stack;
@@ -35,7 +35,7 @@ void	pb(t_data *data)
 	t_listp	*list1;
 	t_listp	*list2;
 
-	if (size_stack(data->a_stack) > 0)
+	if (size_stack(data->a_stack) >= 0)
 	{
 		list1 = data->a_stack;
 		list2 = data->b_stack;

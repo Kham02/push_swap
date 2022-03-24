@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/23 17:47:36 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/24 23:37:46 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,14 @@ void	check(t_data *data, char **av)
 		end(data);
 	else
 	{
-		// write (1, "3\n", 2);
-		bub(data);
-		print(data->a_stack);
+		order(data);
 		if (size_stack(data->a_stack) <= 5)
 			sort_min(data);
 		else
 			sort(data);
 	}
 	end(data);
+	print(data->a_stack);
 }
 
 void	print(t_listp *list)

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/23 19:52:31 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/24 20:20:36 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,49 +50,68 @@ int	check_sort(t_data *data)
 	return(0);
 }
 
-void	search_min(t_data *data)
+void	search_max(t_data *data, t_listp *lst)
 {
-	t_listp	*lst;
+	t_listp	*lst1;
 	int		size;
 
-	lst = data->a_stack;
+	lst1 = lst;
 	data->i = 0;
-	data->min = 0;
+	data->max = 0;
 	size = size_stack(data->a_stack);
-	data->min = lst->val;
+	data->max = lst1->val;
 	while (data->i <= size)
 	{
-		data->j = 0;
-		while (data->j <= size)
-		{
-			if (data->min > lst->val && lst->order == -1)
-				data->min = lst->val;
-			data->j++;
-		}
+		if (data->max < lst1->val)
+			data->max = lst1->val;
 		data->i++;
+		lst1 = lst1->next;
+	}
+}
+
+void	search_min(t_data *data, t_listp *lst)
+{
+	t_listp	*lst1;
+	int		size;
+
+	lst1 = lst;
+	data->i = 0;
+	size = size_stack(data->a_stack);
+	
+	data->min = data->max;
+	while (data->i <= size)
+	{
+		if (data->min > lst1->val && lst1->order == -1)
+			data->min = lst1->val;
+		data->i++;
+		lst1 = lst1->next;
 	}
 }
 
 void	order(t_data *data)
 {
-	int	i;
-	int	j;
-	int	size;
+	t_listp	*lst;
+	int		i;
+	int		j;
+	int		size;
 
 	size = size_stack(data->a_stack);
 	i = 0;
 	while (i <= size)
 	{
+		lst = data->a_stack;
 		j = 0;
-		search_min(data);
+		search_max(data, lst);
+		search_min(data, lst);
 		while (j <= size)
 		{
-			if (data->min == data->a_stack->val)
+			if (data->min == lst->val)
 			{
-				data->a_stack->order = data->order;
+				lst->order = data->order;
 				data->order++;
 			}
 			j++;
+			lst = lst->next;
 		}
 		i++;
 	}
