@@ -38,8 +38,8 @@ typedef struct s_data
 	int		i;
 	int		j;
 	int		min;
-	int		max;
 	int		mid;
+	int		order;
 	int		fl;
 	int		val_bub;
 	int		next_order;

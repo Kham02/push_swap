@@ -35,7 +35,7 @@ t_listp	*lst_new(int val)
 	if (!new_list)
 		return (NULL);
 	new_list->val = val;
-	new_list->order = 0;
+	new_list->order = -1;
 	new_list->flag = 0;
 	new_list->next = NULL;
 	return (new_list);

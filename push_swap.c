@@ -17,9 +17,10 @@ void	values(t_data *data)
 	data->stack = NULL;
 	data->a_stack = NULL;
 	data->b_stack = NULL;
-	data->max = 0;
+	data->min = 0;
 	data->mid = 0;
 	data->next_order = 0;
+	data->order = 0;
 }
 
 void	check(t_data *data, char **av)
