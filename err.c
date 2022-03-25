@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/24 23:50:09 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/25 16:40:16 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,12 @@ void	free_list(t_listp *list)
 	t_listp	*r;
 
 	r = list;
-	while (list->next)
+	while (r->next)
 	{
 		fr = r->next;
 		free(r);
 		r = fr;
 	}
+	write(1, "r\n", 2);
 	list = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/24 23:37:46 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/25 16:38:15 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	check(t_data *data, char **av)
 		else
 			sort(data);
 	}
-	end(data);
 	print(data->a_stack);
+	end(data);
 }
 
 void	print(t_listp *list)
