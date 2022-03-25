@@ -6,13 +6,12 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:20 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/25 16:37:02 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/25 17:51:47 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//сверху вниз
 void	ra(t_data *data)
 {
 	t_listp	*list;
@@ -26,7 +25,6 @@ void	ra(t_data *data)
 	}
 }
 
-//сверху вниз
 void	rb(t_data *data)
 {
 	t_listp	*list;
@@ -41,7 +39,6 @@ void	rb(t_data *data)
 	}
 }
 
-//ra rb
 void	rr(t_data *data)
 {
 	t_listp	*list;

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/25 16:38:15 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/25 20:55:17 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,44 @@ void	values(t_data *data)
 	data->order = 0;
 }
 
+int	ft_strcmp(char *s1, char *s2)
+{
+	int i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+int	check_dub(char **av)
+{
+	int	i;
+	int	n;
+
+	i = 0;
+	while (av[i])
+	{
+		n = 0;
+		while (av[n] && i != n)
+		{
+			if (!ft_strcmp(av[i], av[n]))
+				return (0);
+			n++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 void	check(t_data *data, char **av)
 {
 	int	i;
 
 	i = 1;
 	values(data);
+	if (check_dub(av) != 1)
+		error(data);
 	while (av[i])
 	{
 		lst_add_back(&data->a_stack, lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
@@ -72,4 +104,17 @@ int	main(int ac ,char **av)
 		error(data);
 	check(data, av);
 	return (0);
+}
+
+void	debug_print(t_listp **stack_a, t_listp **stack_b)
+{
+	getchar();
+	system("clear");
+	printf("\033[04;38;05;76;48;05;232m"\
+	"stack_a:                       \n""\033[m");
+	print(*stack_a);
+	printf("\033[38;05;124;48;05;232m"\
+	"stack_b:                       \n""\033[m");
+	print(*stack_b);
+	write(1, "\033[38;05;226m", 13);
 }

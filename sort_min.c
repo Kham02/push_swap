@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/24 23:37:27 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/25 20:58:16 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,29 @@ void	sort_2_el(t_data *data)
 
 void	sort_3_el(t_data *data)
 {
-	int	size;
+	t_listp	*lst;
 
-	size = 0;
-	while (size <= 2)
-	{
-		if (data->a_stack->order == 2)
-			pb(data);
-		ra(data);
-		size++;
-	}
-	sort_2_el(data);
+	lst = data->a_stack;
+	if (lst > lst->next lst->next > lst->next->next)
 	
-	if (data->b_stack->order == 2)
-	{
-		pa(data);
-		ra(data);
-	}
+	// int	size;
+
+	// size = 0;
+	// while (size <= 2)
+	// {
+	// 	if (data->a_stack->order == 2)
+	// 		pb(data);
+	// 	else
+	// 		ra(data);
+	// 	size++;
+	// 	debug_print(&data->a_stack, &data->b_stack);
+	// }
+	// sort_2_el(data);
+	// if (data->b_stack->order == 2)
+	// {
+	// 	pa(data);
+	// 	ra(data);
+	// }
 }
 
 void	sort_4_el(t_data *data)
@@ -66,7 +72,8 @@ void	sort_4_el(t_data *data)
 	{
 		if (data->a_stack->order < 2)
 			pb(data);
-		ra(data);
+		else
+			ra(data);
 		size++;
 	}
 	sort_2_el(data);
@@ -75,7 +82,8 @@ void	sort_4_el(t_data *data)
 	{
 		if (data->b_stack->order == 1)
 			pa(data);
-		sb(data);
+		else
+			sb(data);
 		size++;
 	}
 	pa(data);
@@ -88,23 +96,27 @@ void	sort_5_el(t_data *data)
 	size = 0;
 	while (size <= 5)
 	{
-		if (data->a_stack->order < 3)
+		if (data->a_stack->order > 2)
 			pb(data);
-		ra(data);
+		else
+			ra(data);
 		size++;
+		debug_print(&data->a_stack, &data->b_stack);
 	}
-	sort_2_el(data);
-	size = 0;
-	while (size <=3)
-	{
-		if (data->b_stack->order == 2)
-			pa(data);
-		rb(data);
-		size++;
-	}
-	if (data->b_stack->order == 1)
+	sort_3_el(data);
+	// size = 0;
+	// while (size <=3)
+	// {
+	// 	if (data->b_stack->order == 2)
+	// 		pa(data);
+	// 	else
+	// 		rb(data);
+	// 	size++;
+	// 	debug_print(&data->a_stack, &data->b_stack);
+	// }
+	if (data->b_stack->order == 3)
 		pa(data);
-	else
+	else if (data->b_stack->order == 4)
 	{
 		sb(data);
 		pa(data);

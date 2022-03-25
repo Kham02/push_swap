@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/25 15:05:13 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/25 18:01:41 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 	}
 	if (str[i] == '+' && s == 1)
 		i++;
+	if (!ft_isdigit(str[i]))
+			error(data);
 	while (str[i] > 47 && str[i] < 58)
 	{
 		n = n * 10 + (str[i] - 48);
