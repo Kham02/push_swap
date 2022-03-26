@@ -6,14 +6,15 @@
 #    By: estrong <estrong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 14:00:04 by estrong           #+#    #+#              #
-#    Updated: 2022/03/13 20:53:51 by estrong          ###   ########.fr        #
+#    Updated: 2022/03/26 14:10:34 by estrong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
 SRCS	=	push_swap.c	err.c	p.c	r.c	rr.c	s.c	\
-			sort_min.c	sort.c	valid.c	utils_lst.c
+			sort_min.c	sort.c	valid.c	utils_lst.c	\
+			sort_utils.c
 
 OBJ		=	$(patsubst %.c,%.o,$(SRCS))
 

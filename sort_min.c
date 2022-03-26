@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/26 12:34:20 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/26 19:51:50 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ void	sort_min(t_data *data)
 		sort_3_el(data);
 	if (data->size_a == 1)
 		sort_2_el(data);
-	if (check_sort(data) != 0)
-		sort_min(data);
 }
 
 void	sort_2_el(t_data *data)
@@ -49,14 +47,15 @@ void	sort_3_el(t_data *data)
 		sa(data);
 	if (a > an && a > ann && an > ann) //3 2 1
 		ra(data);
+	a = data->a_stack->val;
+	an = data->a_stack->next->val;
+	ann = data->a_stack->next->next->val;
 	if (a > an && a > ann && an < ann) //3 1 2
 		ra(data);
 	if (a > an && a < ann && an < ann) //2 1 3
 		sa(data);
 	if (a < an && a > ann && an > ann) //2 3 1
 		rra(data);
-	if (check_sort(data) != 0)
-		sort_min(data);
 }
 
 void	sort_4_el(t_data *data)
@@ -100,7 +99,6 @@ void	sort_5_el(t_data *data)
 		// debug_print(&data->a_stack, &data->b_stack);
 	}
 	sort_3_el(data);
-	size = 0;
 	pa(data);
 	pa(data);
 	if (data->a_stack->order == 4)
@@ -108,5 +106,5 @@ void	sort_5_el(t_data *data)
 	if (data->a_stack->order == 3)
 		ra(data);
 	ra(data);
-	// print(data->a_stack);
+	print(data->a_stack);
 }

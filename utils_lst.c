@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 11:06:06 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/24 23:07:36 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/26 17:00:58 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	size_stack(t_listp *lst)
 
 	count = 0;
 	if (!lst)
-		return (0);
+		return (-1);
 	while (lst->next)
 	{
 		lst = lst->next;

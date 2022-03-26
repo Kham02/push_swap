@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/26 12:34:23 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/26 20:22:30 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	values(t_data *data)
 	data->mid = 0;
 	data->next_order = 0;
 	data->order = 0;
+	data->fl = 0;
 }
 
 int	ft_strcmp(char *s1, char *s2)
@@ -66,17 +67,19 @@ void	check(t_data *data, char **av)
 		lst_add_back(&data->a_stack, lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
 		i++;
 	}
-	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 1)
+	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 0)
 		end(data);
 	else
 	{
 		order(data);
-		if (size_stack(data->a_stack) <= 5)
+		if (size_stack(data->a_stack) < 5)
 			sort_min(data);
 		else
 			sort(data);
 	}
-	print(data->a_stack);
+	// print(data->a_stack);
+	// write(1, "---b_stack---\n", 14);
+	// print(data->b_stack);
 	end(data);
 }
 

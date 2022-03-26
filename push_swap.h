@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/25 20:24:45 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/26 16:19:47 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,16 @@ void	sort_4_el(t_data *data);
 void	sort_5_el(t_data *data);
 void	sort(t_data *data);
 void	sort_b(t_data *data);
+void	sort_b_utils(t_data *data);
 void	sort_a(t_data *data);
+void	sort_a_utils(t_data *data);
 void	scroll(t_data *data);
 void	free_list(t_listp *list);
 char	error(t_data *data);
 void	end(t_data *data);
 int	ft_strcmp(char *s1, char *s2);
 int	check_dub(char **av);
+
 //############### DEBUG ###################
 void	print(t_listp *list);
 void	debug_print(t_listp **stack_a, t_listp **stack_b);
