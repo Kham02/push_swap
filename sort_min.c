@@ -41,8 +41,22 @@ void	sort_3_el(t_data *data)
 	t_listp	*lst;
 
 	lst = data->a_stack;
-	if (lst > lst->next lst->next > lst->next->next)
-	
+	if (lst > lst->next && lst->next > lst->next->next) //3 2 1
+	{
+		ra(data);
+		sa(data);
+	}
+	if (lst > lst->next && lst > lst->next->next) //3 1 2
+		ra(data);
+	if (lst > lst->next && lst < lst->next->next) //2 1 3
+		sa(data);
+	if (lst < lst->next && lst < lst->next->next)
+		rra(data);
+	if (lst < lst->next && lst->next > lst->next->next)
+	{
+		sa(data);
+		ra(data);
+	}
 	// int	size;
 
 	// size = 0;
