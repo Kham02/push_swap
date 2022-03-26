@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:45 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/25 20:22:47 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/26 13:20:44 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void	sort(t_data *data)
 
 void	sort_b(t_data *data)
 {
+	data->mid = (size_stack(data->b_stack) - )
 	while(data->b_stack)
 	{
 		if(data->b_stack->order == data->next_order)
@@ -48,12 +49,13 @@ void	sort_b(t_data *data)
 	}
 	if (size_stack(data->b_stack) > 0)
 		sort_b(data);
-		sort_a(data);
+	sort_a(data);
 }
 
 void	sort_a(t_data *data)
 {
 	data->size_a = size_stack(data->a_stack);
+	data->mid = ()
 	while (data->size_a - data->next_order + 1 > 0)
 	{
 		if (data->a_stack->flag == 0)

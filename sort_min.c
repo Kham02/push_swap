@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/25 20:58:16 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/26 12:34:20 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,43 +38,25 @@ void	sort_2_el(t_data *data)
 
 void	sort_3_el(t_data *data)
 {
-	t_listp	*lst;
+	int	a;
+	int	an;
+	int	ann;
 
-	lst = data->a_stack;
-	if (lst > lst->next && lst->next > lst->next->next) //3 2 1
-	{
-		ra(data);
+	a = data->a_stack->val;
+	an = data->a_stack->next->val;
+	ann = data->a_stack->next->next->val;
+	if (a < an && a < ann && an > ann) //1 3 2
 		sa(data);
-	}
-	if (lst > lst->next && lst > lst->next->next) //3 1 2
+	if (a > an && a > ann && an > ann) //3 2 1
 		ra(data);
-	if (lst > lst->next && lst < lst->next->next) //2 1 3
+	if (a > an && a > ann && an < ann) //3 1 2
+		ra(data);
+	if (a > an && a < ann && an < ann) //2 1 3
 		sa(data);
-	if (lst < lst->next && lst < lst->next->next)
+	if (a < an && a > ann && an > ann) //2 3 1
 		rra(data);
-	if (lst < lst->next && lst->next > lst->next->next)
-	{
-		sa(data);
-		ra(data);
-	}
-	// int	size;
-
-	// size = 0;
-	// while (size <= 2)
-	// {
-	// 	if (data->a_stack->order == 2)
-	// 		pb(data);
-	// 	else
-	// 		ra(data);
-	// 	size++;
-	// 	debug_print(&data->a_stack, &data->b_stack);
-	// }
-	// sort_2_el(data);
-	// if (data->b_stack->order == 2)
-	// {
-	// 	pa(data);
-	// 	ra(data);
-	// }
+	if (check_sort(data) != 0)
+		sort_min(data);
 }
 
 void	sort_4_el(t_data *data)
@@ -115,25 +97,16 @@ void	sort_5_el(t_data *data)
 		else
 			ra(data);
 		size++;
-		debug_print(&data->a_stack, &data->b_stack);
+		// debug_print(&data->a_stack, &data->b_stack);
 	}
 	sort_3_el(data);
-	// size = 0;
-	// while (size <=3)
-	// {
-	// 	if (data->b_stack->order == 2)
-	// 		pa(data);
-	// 	else
-	// 		rb(data);
-	// 	size++;
-	// 	debug_print(&data->a_stack, &data->b_stack);
-	// }
-	if (data->b_stack->order == 3)
-		pa(data);
-	else if (data->b_stack->order == 4)
-	{
-		sb(data);
-		pa(data);
-	}
+	size = 0;
 	pa(data);
+	pa(data);
+	if (data->a_stack->order == 4)
+		sa(data);
+	if (data->a_stack->order == 3)
+		ra(data);
+	ra(data);
+	// print(data->a_stack);
 }
