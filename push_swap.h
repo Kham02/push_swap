@@ -65,6 +65,8 @@ t_listp	*lst_last(t_listp *lst);
 t_listp	*copy_stack(t_listp *stack);
 void	lst_add_back(t_listp **lst, t_listp *new_lst);
 void	check(t_data *data, char **av);
+int		ft_strcmp(char *s1, char *s2);
+int		check_dub(char **av);
 void	values(t_data *data);
 int		push_swap_atoi(t_data *data, char *str, unsigned int n, int s);
 void	order(t_data *data);
@@ -82,11 +84,10 @@ void	sort_b_utils(t_data *data);
 void	sort_a(t_data *data);
 void	sort_a_utils(t_data *data);
 void	scroll(t_data *data);
+void	scroll_up(t_data *data);
 void	free_list(t_listp *list);
 char	error(t_data *data);
 void	end(t_data *data);
-int	ft_strcmp(char *s1, char *s2);
-int	check_dub(char **av);
 
 //############### DEBUG ###################
 void	print(t_listp *list);

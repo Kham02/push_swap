@@ -18,7 +18,7 @@ char	error(t_data *data)
 		// free_list(data->a_stack);
 	write(1, "Error\n", 6);
 	data = NULL;
-	exit(0);
+	exit(EXIT_FAILURE);
 	return(0);
 }
 
