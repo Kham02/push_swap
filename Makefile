@@ -6,38 +6,50 @@
 #    By: estrong <estrong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 14:00:04 by estrong           #+#    #+#              #
-#    Updated: 2022/03/26 14:10:34 by estrong          ###   ########.fr        #
+#    Updated: 2022/03/27 22:04:04 by estrong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	=	push_swap
 
-SRCS	=	push_swap.c	err.c	p.c	r.c	rr.c	s.c	\
+NAME_B	= checker
+
+HEAD 	= push_swap.h
+
+HEAD_B	= ./bonus/checker.h
+
+LIST	=	push_swap.c	err.c	p.c	r.c	rr.c	s.c	\
 			sort_min.c	sort.c	valid.c	utils_lst.c	\
 			sort_utils.c
 
-OBJ		=	$(patsubst %.c,%.o,$(SRCS))
+LIST_B	=	bonus/checker.c	bonus/get_next_line.c	bonus/get_next_line_utils.c	\
+			bonus/mov_operations.c	bonus/p.c	bonus/s.c	bonus/r.c	\
+			bonus/rr.c	bonus/utils_list.c	bonus/utils.c	bonus/valid.c
+			
 
-HEADER	=	push_swap.h
+OBJ = $(patsubst %.c,%.o,$(LIST))
 
-CC		=	gcc
+OBJ_B = $(patsubst %.c,%.o,$(LIST_B))
 
-FLAGS	=	-Wall -Wextra -Werror -I$(HEADER)
+FLAGS = -Wall -Wextra -Werror
 
-.PHONY :	all clean fclean re
+all : $(NAME)
 
-all :	$(NAME)
+$(NAME) : $(OBJ) $(HEAD)
+	make -C ./libft
+	gcc -c ${FLAGS} ${LIST} -I libft/
+# gcc -g -c ${LIST} -I libft/
+	gcc ${OBJ} libft/libft.a -o ${NAME} 
 
-$(NAME) : $(OBJ)
-	$(MAKE) -C ./libft
-	$(CC) -c ${FLAGS} ${SRCS} -I libft/
-	$(CC) ${OBJ} -o ${NAME} libft/libft.a
-
+# bonus : $(OBJ_B) $(HEAD_B)
+# 	make -C ./libft
+# 	gcc -c ${FLAGS} ${LIST_B} -I libft/
+# 	gcc ${OBJ_B} -o ${NAME_B} libft/libft.a
 clean :
-	rm -f $(OBJ)
+	rm -f $(OBJ) $(OBJ_B)
 	make clean -C ./libft
 
 fclean : clean
-	rm -f $(NAME)
+	rm -f $(NAME) $(NAME_B)
 	make fclean -C ./libft
 re : fclean all

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/26 18:45:16 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/27 19:56:22 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,15 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 int	check_sort(t_data *data)
 {
 	t_listp	*lst;
+	t_listp	*lst1;
 	int		i;
 
 	lst = data->a_stack;
+	lst1 = data->a_stack->next;
 	i = size_stack(lst);
-	while (i >= 0)
+	while (lst)
 	{
-		if (lst->next->order != (lst->order + 1))
+		if (lst->flag != 1)
 			return (1);
 		i--;
 		lst = lst->next;

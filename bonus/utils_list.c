@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_list.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/27 19:19:13 by estrong           #+#    #+#             */
+/*   Updated: 2022/03/27 20:08:14 by estrong          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
 int	size_stack(t_listp *lst)
@@ -42,4 +54,11 @@ void	lst_add_back(t_listp **lst, t_listp *new_lst)
 	}
 	else
 		*lst = new_lst;
+}
+
+t_listp	*lst_last(t_listp *lst)
+{
+	while (lst && lst->next)
+		lst = lst->next;
+	return (lst);
 }

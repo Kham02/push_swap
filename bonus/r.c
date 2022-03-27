@@ -6,11 +6,11 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:20 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/26 17:08:46 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/27 20:07:13 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	ra(t_data *data)
 {

@@ -1,48 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   sort_utils2_0.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 19:16:25 by estrong          ###   ########.fr       */
+/*   Created: 2022/03/27 22:55:41 by estrong           #+#    #+#             */
+/*   Updated: 2022/03/27 23:05:58 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	error(t_data *data)
+void	cost_a(t_data *data)
 {
-	// if (data->a_stack != NULL)
-		// free_list(data->a_stack);
-	write(1, "Error\n", 6);
-	data = NULL;
-	exit(EXIT_FAILURE);
-	return(0);
-}
+	t_listp	*lst_b;
 
-void	end(t_data *data)
-{
-	free_list(data->a_stack);
-	data = NULL;
-	exit(1);
-}
-
-void	free_list(t_listp *list)
-{
-	t_listp	*fr;
-	t_listp	*r;
-
-	if (list)
-	{
-		r = list;
-		while (r->next)
-		{
-			fr = r->next;
-			free(r);
-			r = fr;
-		}
-		list = NULL;
-	}
+	lst_b = data->b_stack;
 }

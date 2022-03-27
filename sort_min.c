@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/26 19:51:50 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/27 19:42:59 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,5 @@ void	sort_5_el(t_data *data)
 	if (data->a_stack->order == 3)
 		ra(data);
 	ra(data);
-	print(data->a_stack);
+	// print(data->a_stack);
 }

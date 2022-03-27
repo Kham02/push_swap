@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/26 16:19:47 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/27 22:54:00 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct s_listp
 	int				val;
 	int				order;
 	int				flag;
+	int				cost;
 	struct s_listp	*next;
 }t_listp;
 
@@ -79,12 +80,13 @@ void	sort_3_el(t_data *data);
 void	sort_4_el(t_data *data);
 void	sort_5_el(t_data *data);
 void	sort(t_data *data);
-void	sort_b(t_data *data);
-void	sort_b_utils(t_data *data);
-void	sort_a(t_data *data);
-void	sort_a_utils(t_data *data);
-void	scroll(t_data *data);
-void	scroll_up(t_data *data);
+// void	sort_b(t_data *data);
+// void	sort_b_utils(t_data *data);
+// void	opt_sort_b(t_data *data);
+// void	sort_a(t_data *data);
+// void	sort_a_utils(t_data *data);
+// void	scroll(t_data *data);
+// void	scroll_up(t_data *data);
 void	free_list(t_listp *list);
 char	error(t_data *data);
 void	end(t_data *data);

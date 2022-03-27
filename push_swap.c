@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/26 20:22:30 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/27 22:22:45 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,20 +67,6 @@ void	check(t_data *data, char **av)
 		lst_add_back(&data->a_stack, lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
 		i++;
 	}
-	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 0)
-		end(data);
-	else
-	{
-		order(data);
-		if (size_stack(data->a_stack) < 5)
-			sort_min(data);
-		else
-			sort(data);
-	}
-	// print(data->a_stack);
-	// write(1, "---b_stack---\n", 14);
-	// print(data->b_stack);
-	end(data);
 }
 
 void	print(t_listp *list)
@@ -106,18 +92,30 @@ int	main(int ac ,char **av)
 	if (ac < 2)
 		error(data);
 	check(data, av);
+	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 0)
+		end(data);
+	order(data);
+	if (size_stack(data->a_stack) < 5)
+		sort_min(data);
+	else
+	{
+		sort(data);
+		sort_3_el(data);
+		sort_a(data);
+	}
+	end(data);
 	return (0);
 }
 
-void	debug_print(t_listp **stack_a, t_listp **stack_b)
-{
-	getchar();
-	system("clear");
-	printf("\033[04;38;05;76;48;05;232m"\
-	"stack_a:                       \n""\033[m");
-	print(*stack_a);
-	printf("\033[38;05;124;48;05;232m"\
-	"stack_b:                       \n""\033[m");
-	print(*stack_b);
-	write(1, "\033[38;05;226m", 13);
-}
+// void	debug_print(t_listp **stack_a, t_listp **stack_b)
+// {
+// 	getchar();
+// 	system("clear");
+// 	printf("\033[04;38;05;76;48;05;232m"\
+// 	"stack_a:                       \n""\033[m");
+// 	print(*stack_a);
+// 	printf("\033[38;05;124;48;05;232m"\
+// 	"stack_b:                       \n""\033[m");
+// 	print(*stack_b);
+// 	write(1, "\033[38;05;226m", 13);
+// }
