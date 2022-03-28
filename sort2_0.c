@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	sort(t_data *data)
+void	push_b(t_data *data)
 {
 	data->size_a = size_stack(data->a_stack);
 	data->max = data->size_a;
@@ -33,10 +33,7 @@ void	sort(t_data *data)
 	}
 }
 
-void	sort_a(t_data *data)
+void	push_a(t_data *data)
 {
-	while (data->a_stack != NULL)
-	{
-		cost_a(data);
-	}
+	init_cost(data);
 }

@@ -24,6 +24,7 @@ typedef struct s_listp
 	int				val;
 	int				order;
 	int				flag;
+	int				i;
 	int				cost;
 	struct s_listp	*next;
 }t_listp;
@@ -46,6 +47,7 @@ typedef struct s_data
 	int		val_bub;
 	int		next_order;
 	int		count;
+	int		min_mov;
 }t_data;
 
 void	pa(t_data *data);
