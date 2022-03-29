@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 22:22:45 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/29 15:16:00 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	values(t_data *data)
 {
-	data->stack = NULL;
+	// data->stack = NULL;
 	data->a_stack = NULL;
 	data->b_stack = NULL;
 	data->min = 0;
@@ -74,11 +74,11 @@ void	print(t_listp *list)
 	t_listp	*p;
 
 	p = list;
-	printf("\033[38;05;32;48;05;232m""| num |\t|index|\t| flag |""\033[m""\n");
+	printf("\033[38;05;32;48;05;232m""| num |\t|index|\t| cost |""\033[m""\n");
 	while (p != NULL)
 	{
 		printf("\033[38;05;115m""  %d\t  %d\t  %d""\033[m""\n", \
-		(int)p->val, (int)p->order, p->flag);
+		(int)p->val, (int)p->order, p->cost);
 		p = p->next;
 	}
 }
@@ -99,9 +99,11 @@ int	main(int ac ,char **av)
 		sort_min(data);
 	else
 	{
-		sort(data);
+		push_b(data);
 		sort_3_el(data);
-		sort_a(data);
+		push_a(data);
+		// print(data->a_stack);
+		// print(data->b_stack);
 	}
 	end(data);
 	return (0);

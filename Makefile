@@ -6,7 +6,7 @@
 #    By: estrong <estrong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 14:00:04 by estrong           #+#    #+#              #
-#    Updated: 2022/03/27 22:04:04 by estrong          ###   ########.fr        #
+#    Updated: 2022/03/29 14:28:45 by estrong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ HEAD 	= push_swap.h
 HEAD_B	= ./bonus/checker.h
 
 LIST	=	push_swap.c	err.c	p.c	r.c	rr.c	s.c	\
-			sort_min.c	sort.c	valid.c	utils_lst.c	\
-			sort_utils.c
+			sort_min.c	sort2_0.c	valid.c	utils_lst.c	\
+			sort_utils2_0.c
 
 LIST_B	=	bonus/checker.c	bonus/get_next_line.c	bonus/get_next_line_utils.c	\
 			bonus/mov_operations.c	bonus/p.c	bonus/s.c	bonus/r.c	\

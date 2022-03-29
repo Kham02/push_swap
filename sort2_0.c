@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 22:55:44 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 23:01:23 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/29 15:21:50 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,21 @@ void	push_b(t_data *data)
 
 void	push_a(t_data *data)
 {
+	t_listp	*lst_mov;
+
+	lst_mov = data->b_stack;
 	init_cost(data);
+	// print(data->a_stack);
+	// print(data->b_stack);
+	while (lst_mov != data->min_mov)
+		lst_mov = lst_mov->next;
+	data->next_order = lst_mov->order;
+	if (lst_mov->cost < 0)
+		rr_scroll(data, lst_mov);
+	else
+		r_scroll(data, lst_mov);
+	if (data->a_stack->order > data->next_order && data->b_stack == lst_mov)
+		pa(data);
+	if (size_stack(data->b_stack) >= 0)
+		push_a(data);
 }

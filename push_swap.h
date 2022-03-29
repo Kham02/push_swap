@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 22:54:00 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/29 14:26:54 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_data
 {
 	t_listp	*a_stack;
 	t_listp	*b_stack;
-	t_listp	*stack;
+	t_listp	*min_mov;
 	int		size_a;
 	int		size_b;
 	int		*arr;
@@ -47,7 +47,6 @@ typedef struct s_data
 	int		val_bub;
 	int		next_order;
 	int		count;
-	int		min_mov;
 }t_data;
 
 void	pa(t_data *data);
@@ -81,7 +80,13 @@ void	sort_2_el(t_data *data);
 void	sort_3_el(t_data *data);
 void	sort_4_el(t_data *data);
 void	sort_5_el(t_data *data);
-void	sort(t_data *data);
+void	push_b(t_data *data);
+void	push_a(t_data *data);
+int	cost_a(t_data *data, t_listp *lst_b);
+void	init_cost(t_data *data);
+void	rr_scroll(t_data *data, t_listp *lst_mov);
+void	r_scroll(t_data *data, t_listp *lst_mov);
+// void	sort(t_data *data);
 // void	sort_b(t_data *data);
 // void	sort_b_utils(t_data *data);
 // void	opt_sort_b(t_data *data);

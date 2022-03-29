@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 19:56:22 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/29 14:23:19 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	check_sort(t_data *data)
 	lst = data->a_stack;
 	lst1 = data->a_stack->next;
 	i = size_stack(lst);
-	while (lst)
+	while (lst && i >= 0)
 	{
 		if (lst->flag != 1)
 			return (1);
