@@ -89,6 +89,7 @@ void	init_cost(t_data *data);
 void	rr_scroll(t_data *data, t_listp *lst_mov);
 void	r_scroll(t_data *data, t_listp *lst_mov);
 int		cost_a_utils(t_listp *lst_a, t_listp *lst_b);
+t_listp	*search_min_mov(t_data *data);
 // void	sort(t_data *data);
 // void	sort_b(t_data *data);
 // void	sort_b_utils(t_data *data);

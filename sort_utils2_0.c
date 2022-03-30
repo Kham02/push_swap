@@ -21,7 +21,7 @@ int	cost_a(t_data *data, t_listp *lst_b)
 	mov = 0;
 	data->a_rr = 0;
 	lst_a = data->a_stack;
-	p = cost_a_utils(lst_a, lst_b);
+	p = cost_a_utils(data, lst_a, lst_b);
 	lst_a = data->a_stack;
 	lst_b->cost_a = 0;
 	while (p != lst_a->order)
@@ -37,7 +37,7 @@ int	cost_a(t_data *data, t_listp *lst_b)
 	return (mov);
 }
 
-int	cost_a_utils(t_listp *lst_a, t_listp *lst_b)
+int	cost_a_utils(t_data *data, t_listp *lst_a, t_listp *lst_b)
 {
 	int	p;
 
@@ -48,7 +48,10 @@ int	cost_a_utils(t_listp *lst_a, t_listp *lst_b)
 		if (lst_a->order > lst_b->order)
 		{
 			if (p > lst_a->order)
+			{
 				p = lst_a->order;
+				data->next_order = p;
+			}
 		}
 		lst_a = lst_a->next;
 	}
@@ -60,11 +63,8 @@ void	init_cost(t_data *data)
 	t_listp	*lst_b;
 	int		cos_a;
 	int		cos_b;
-	int		i;
-
-	i = 0;
+	
 	lst_b = data->b_stack;
-	data->min_mov = data->b_stack;
 	while (lst_b)
 	{
 		lst_b->flag = 0;
@@ -76,45 +76,31 @@ void	init_cost(t_data *data)
 			cos_b = (size_stack(data->b_stack) + 2) - i;
 		}
 		lst_b->cost = cos_a + cos_b;
-		if (data->min_mov->cost >= lst_b->cost)
-			data->min_mov = lst_b;
 		lst_b = lst_b->next;
-		i++;
 	}
 }
 
-void	rr_scroll(t_data *data, t_listp *lst_mov)
+t_listp	*search_min_mov(t_data *data)
 {
-	if (lst_mov->flag == 1 && lst_mov->cost_a == -1)
-	{
-		while (data->a_stack->order < data->next_order && data->b_stack != lst_mov)
-			rrr(data);
-	}
-	if (lst_mov->cost_a == -1)
-	{
-		while (data->a_stack->order < data->next_order)
-			rra(data);
-	}
-	if (lst_mov->flag == 1)
-	while (data->b_stack != lst_mov)
-		rrb(data);
-}
+	t_listp	*lst_b;
+	int		min_mov;
 
-void	r_scroll(t_data *data, t_listp *lst_mov)
-{
-	if (lst_mov->flag == 0 && lst_mov->cost_a == 0)
+	lst_b = data->b_stack;
+	min_mov = 1000;
+	while (lst_b)
 	{
-		while (data->a_stack->order < data->next_order && data->b_stack != lst_mov)
-			rr(data);
+		if (lst_b->cost < min_mov)
+			min_mov = lst_b->cost;
+		lst_b = lst_b->next;
 	}
-	if (lst_mov->cost_a == 0)
+	lst_b = data->b_stack;
+	while (lst_b)
 	{
-		while (data->a_stack->order < data->next_order)
-			ra(data);
+		if (lst_b->cost == min_mov)
+		{
+			data->next_order = lst_b->order;
+			return (lst_b);
+		}
 	}
-	if (lst_mov->flag == 0)
-	{
-		while (data->b_stack != lst_mov)
-			rb(data);
-	}
+	return (0);
 }

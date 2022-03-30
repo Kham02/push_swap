@@ -39,19 +39,53 @@ void	push_a(t_data *data)
 
 	lst_mov = data->b_stack;
 	init_cost(data);
-	while (lst_mov != data->min_mov)
-		lst_mov = lst_mov->next;
-	data->next_order = lst_mov->order;
+	lst_mov = search_min_mov(data);
 	if (lst_mov->flag == 1 || lst_mov->cost_a == -1)
 		rr_scroll(data, lst_mov);
 	else
 		r_scroll(data, lst_mov);
-	if (data->a_stack->order > data->next_order && data->b_stack == lst_mov)
+	if (data->a_stack->order == data->next_order && data->b_stack == lst_mov)
 		pa(data);
-	print(data->a_stack);
-	print(data->b_stack);
 	if (size_stack(data->b_stack) >= 0)
 		push_a(data);
 	while (data->a_stack->order != 0)
 		ra(data);
+	print(data->a_stack);
+	print(data->b_stack);
+}
+
+void	rr_scroll(t_data *data, t_listp *lst_mov)
+{
+	if (lst_mov->flag == 1 && lst_mov->cost_a == -1)
+	{
+		while (data->a_stack->order != data->next_order && data->b_stack != lst_mov)
+			rrr(data);
+	}
+	if (lst_mov->cost_a == -1)
+	{
+		while (data->a_stack->order != data->next_order)
+			rra(data);
+	}
+	if (lst_mov->flag == 1)
+	while (data->b_stack != lst_mov)
+		rrb(data);
+}
+
+void	r_scroll(t_data *data, t_listp *lst_mov)
+{
+	if (lst_mov->flag == 0 && lst_mov->cost_a == 0)
+	{
+		while (data->a_stack->order != data->next_order && data->b_stack != lst_mov)
+			rr(data);
+	}
+	if (lst_mov->cost_a == 0)
+	{
+		while (data->a_stack->order != data->next_order)
+			ra(data);
+	}
+	if (lst_mov->flag == 0)
+	{
+		while (data->b_stack != lst_mov)
+			rb(data);
+	}
 }
