@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/29 14:26:54 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/30 15:47:42 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_listp
 	int				order;
 	int				flag;
 	int				i;
+	int				cost_a;
 	int				cost;
 	struct s_listp	*next;
 }t_listp;
@@ -47,6 +48,7 @@ typedef struct s_data
 	int		val_bub;
 	int		next_order;
 	int		count;
+	int		a_rr;
 }t_data;
 
 void	pa(t_data *data);
@@ -82,10 +84,11 @@ void	sort_4_el(t_data *data);
 void	sort_5_el(t_data *data);
 void	push_b(t_data *data);
 void	push_a(t_data *data);
-int	cost_a(t_data *data, t_listp *lst_b);
+int		cost_a(t_data *data, t_listp *lst_b);
 void	init_cost(t_data *data);
 void	rr_scroll(t_data *data, t_listp *lst_mov);
 void	r_scroll(t_data *data, t_listp *lst_mov);
+int		cost_a_utils(t_listp *lst_a, t_listp *lst_b);
 // void	sort(t_data *data);
 // void	sort_b(t_data *data);
 // void	sort_b_utils(t_data *data);
