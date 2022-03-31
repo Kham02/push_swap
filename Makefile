@@ -6,7 +6,7 @@
 #    By: estrong <estrong@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/12 14:00:04 by estrong           #+#    #+#              #
-#    Updated: 2022/03/29 14:28:45 by estrong          ###   ########.fr        #
+#    Updated: 2022/03/31 18:24:33 by estrong          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,10 +41,10 @@ $(NAME) : $(OBJ) $(HEAD)
 # gcc -g -c ${LIST} -I libft/
 	gcc ${OBJ} libft/libft.a -o ${NAME} 
 
-# bonus : $(OBJ_B) $(HEAD_B)
-# 	make -C ./libft
-# 	gcc -c ${FLAGS} ${LIST_B} -I libft/
-# 	gcc ${OBJ_B} -o ${NAME_B} libft/libft.a
+bonus : $(OBJ_B) $(HEAD_B)
+	make -C ./libft
+	gcc -c ${FLAGS} ${LIST_B} -I libft/
+	gcc ${OBJ_B} -o ${NAME_B} libft/libft.a
 clean :
 	rm -f $(OBJ) $(OBJ_B)
 	make clean -C ./libft

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/29 14:23:19 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 17:19:36 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 	int	i;
 
 	i = 0;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32 || str[i] == 34)
 		i++;
 	if (str[i] == '-')
 	{
@@ -35,6 +35,7 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 		if ((n > 2147483647 && s == 1) || (n > 2147483648 && s == -1))
 			error(data);
 	}
+	// printf("%d\n", n * s);
 	return(n * s);
 }
 

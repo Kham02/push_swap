@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:27 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 20:07:16 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 18:51:51 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	rra(t_data *data)
 		list1->next = NULL;
 		list2->next = data->a_stack;
 		data->a_stack = list2;
-		ft_putstr_fd("rra\n", 1);
+		// ft_putstr_fd("rra\n", 1);
 	}
 }
 
@@ -46,7 +46,7 @@ void	rrb(t_data *data)
 		list1->next = NULL;
 		list2->next = data->b_stack;
 		data->b_stack = list2;
-		ft_putstr_fd("rrb\n", 1);
+		// ft_putstr_fd("rrb\n", 1);
 	}
 }
 
@@ -72,6 +72,6 @@ void	rrr(t_data *data)
 		list1->next = NULL;
 		list2->next = data->b_stack;
 		data->b_stack = list2;
-		ft_putstr_fd("rrr\n", 1);
+		// ft_putstr_fd("rrr\n", 1);
 	}
 }

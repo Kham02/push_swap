@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:18:06 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 20:41:39 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 18:45:42 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	end(t_data *data)
 int	main(int ac, char **av)
 {
 	t_data	*data;
-
+	// (void)av;
 	data = (t_data *)malloc(sizeof(t_data *));
 	if (!data)
 		error(data);

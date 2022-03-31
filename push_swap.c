@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/30 16:00:38 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 18:23:38 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	check(t_data *data, char **av)
 {
 	int	i;
 
-	i = 1;
+	i = 2;
 	values(data);
 	if (check_dub(av) != 1)
 		error(data);
@@ -68,6 +68,24 @@ void	check(t_data *data, char **av)
 		i++;
 	}
 }
+
+// char	**arr(t_data *data, char **av)
+// {
+// 	int		i;
+// 	char	*s1;
+// 	char	**s2;
+
+// 	i = 2;
+// 	s1 = NULL;
+// 	while (av[i])
+// 	{
+// 		s1 = ft_strjoin(s1, av[i]);
+// 		i++;
+// 	}
+// 	s2 = ft_split(s1, ' ');
+// 	free(s1);
+// 	return (s2);
+// }
 
 void	print(t_listp *list)
 {
@@ -102,9 +120,9 @@ int	main(int ac ,char **av)
 		push_b(data);
 		sort_3_el(data);
 		push_a(data);
-		// print(data->a_stack);
-		// print(data->b_stack);
 	}
+	// print(data->a_stack);
+	// print(data->b_stack);
 	end(data);
 	return (0);
 }

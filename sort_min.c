@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 19:42:59 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 19:04:51 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ void	sort_3_el(t_data *data)
 	int	an;
 	int	ann;
 
-	a = data->a_stack->val;
-	an = data->a_stack->next->val;
-	ann = data->a_stack->next->next->val;
+	a = data->a_stack->order;
+	an = data->a_stack->next->order;
+	ann = data->a_stack->next->next->order;
 	if (a < an && a < ann && an > ann) //1 3 2
 		sa(data);
 	if (a > an && a > ann && an > ann) //3 2 1
 		ra(data);
-	a = data->a_stack->val;
-	an = data->a_stack->next->val;
-	ann = data->a_stack->next->next->val;
+	a = data->a_stack->order;
+	an = data->a_stack->next->order;
+	ann = data->a_stack->next->next->order;
 	if (a > an && a > ann && an < ann) //3 1 2
 		ra(data);
 	if (a > an && a < ann && an < ann) //2 1 3

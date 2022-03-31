@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 11:06:06 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/30 15:48:23 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 15:44:42 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_listp	*lst_new(int val)
 	new_list->val = val;
 	new_list->flag = 0;
 	new_list->order = -1;
-	new_list->i = 0;
+	// new_list->i = 0;
 	new_list->cost = -1;
 	new_list->cost = 0;
 	new_list->next = NULL;

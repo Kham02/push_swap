@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:19:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/27 19:19:05 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 18:45:09 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	check_op(t_data *data, char *str)
 		rra(data);
 	else if (ft_strcmp(str, "rrb\n"))
 		rrb(data);
-	else
-		error(data);
+	// else
+	// 	error(data);
 }
 
 void	reed_op(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 22:55:41 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/30 15:53:02 by estrong          ###   ########.fr       */
+/*   Updated: 2022/03/31 15:56:24 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,38 @@ int	cost_a(t_data *data, t_listp *lst_b)
 {
 	t_listp	*lst_a;
 	int		mov;
-	int		p;
 
-	mov = 0;
-	data->a_rr = 0;
-	lst_a = data->a_stack;
-	p = cost_a_utils(data, lst_a, lst_b);
-	lst_a = data->a_stack;
 	lst_b->cost_a = 0;
-	while (p != lst_a->order)
+	mov = 0;
+	lst_a = data->a_stack;
+	while (lst_a->order != data->next_order)
 	{
-		mov++;
 		lst_a = lst_a->next;
+		mov++;
 	}
-	if ((size_stack(data->a_stack) + 1) - mov < mov)
+	// printf("mov: %d\n", mov);
+	if (((size_stack(data->a_stack) + 1) - mov) < mov)
 	{
 		lst_b->cost_a = -1;
-		mov = (size_stack(data->a_stack) + 1) - mov;
+		mov = ((size_stack(data->a_stack) + 1) - mov);
 	}
+	// printf("-mov: %d\n", mov);
 	return (mov);
 }
 
-int	cost_a_utils(t_data *data, t_listp *lst_a, t_listp *lst_b)
+void	search_next_ord(t_data *data, t_listp *lst_b)
 {
-	int	p;
+	t_listp	*lst_a;
 
-	p = 1000;
+	data->next_order = 10000;
+	lst_a = data->a_stack;
 	while (lst_a)
 	{
-		lst_a->flag = 0;
-		if (lst_a->order > lst_b->order)
-		{
-			if (p > lst_a->order)
-			{
-				p = lst_a->order;
-				data->next_order = p;
-			}
-		}
+		if (lst_a->order > lst_b->order && data->next_order > lst_a->order)
+			data->next_order = lst_a->order;
 		lst_a = lst_a->next;
 	}
-	return (p);
+	// printf("next_order: %d\n", data->next_order);
 }
 
 void	init_cost(t_data *data)
@@ -63,28 +55,37 @@ void	init_cost(t_data *data)
 	t_listp	*lst_b;
 	int		cos_a;
 	int		cos_b;
-	
+	int		i;
+
+	i = 0;
 	lst_b = data->b_stack;
 	while (lst_b)
 	{
 		lst_b->flag = 0;
+		search_next_ord(data, lst_b);
 		cos_a = cost_a(data, lst_b);
+		// printf("cos_a: %d\n", cos_a);
 		cos_b = i;
-		if (cos_b > (size_stack(data->b_stack) + 2) - i)
+		if (cos_b > (size_stack(data->b_stack) + 1) - i)
 		{
 			lst_b->flag = 1;
-			cos_b = (size_stack(data->b_stack) + 2) - i;
+			cos_b = (size_stack(data->b_stack) + 1) - i;
 		}
+		// printf("cos_b: %d\n", cos_b);
 		lst_b->cost = cos_a + cos_b;
+		// printf("lst_b->cost: %d\n", lst_b->cost);
 		lst_b = lst_b->next;
+		i++;
 	}
 }
 
 t_listp	*search_min_mov(t_data *data)
 {
 	t_listp	*lst_b;
+	t_listp	*lst_a;
 	int		min_mov;
 
+	lst_a = data->a_stack;
 	lst_b = data->b_stack;
 	min_mov = 1000;
 	while (lst_b)
@@ -98,9 +99,10 @@ t_listp	*search_min_mov(t_data *data)
 	{
 		if (lst_b->cost == min_mov)
 		{
-			data->next_order = lst_b->order;
+			search_next_ord(data, lst_b);
 			return (lst_b);
 		}
+		lst_b = lst_b->next;
 	}
 	return (0);
 }
