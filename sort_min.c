@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 21:11:55 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 23:08:11 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	sort_5_el(t_data *data)
 	size = 0;
 	while (size <= 5)
 	{
-		if (data->a_stack->order > 2)
+		if (data->a_stack->order < 2)
 			pb(data);
 		else
 			ra(data);
@@ -100,9 +100,6 @@ void	sort_5_el(t_data *data)
 	sort_3_el(data);
 	pa(data);
 	pa(data);
-	if (data->a_stack->order == 4)
+	if (data->a_stack->order == 1)
 		sa(data);
-	if (data->a_stack->order == 3)
-		ra(data);
-	ra(data);
 }
