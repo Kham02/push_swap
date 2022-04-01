@@ -1,48 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:34:54 by estrong          ###   ########.fr       */
+/*   Created: 2021/10/14 13:47:02 by estrong           #+#    #+#             */
+/*   Updated: 2022/03/11 12:05:37 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	error(t_data *data)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	if (data->a_stack)
-		free_list(data->a_stack);
-	write(1, "Error\n", 6);
-	data = NULL;
-	exit(EXIT_FAILURE);
-	return (0);
-}
+	size_t	n;
+	size_t	s;
 
-void	end(t_data *data)
-{
-	free_list(data->a_stack);
-	data = NULL;
-	exit(1);
-}
-
-void	free_list(t_listp *list)
-{
-	t_listp	*fr;
-	t_listp	*r;
-
-	if (list)
+	n = ft_strlen(dst);
+	s = ft_strlen(src);
+	if (n > dstsize)
+		return (s + dstsize);
+	else
 	{
-		r = list;
-		while (r->next)
-		{
-			fr = r->next;
-			free(r);
-			r = fr;
-		}
-		list = NULL;
+		dst = dst + n;
+		ft_strlcpy(dst, src, dstsize - n);
+		return (n + s);
 	}
 }

@@ -1,48 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:34:54 by estrong          ###   ########.fr       */
+/*   Created: 2021/10/14 13:49:33 by estrong           #+#    #+#             */
+/*   Updated: 2021/10/22 01:03:15 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	error(t_data *data)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (data->a_stack)
-		free_list(data->a_stack);
-	write(1, "Error\n", 6);
-	data = NULL;
-	exit(EXIT_FAILURE);
-	return (0);
-}
+	size_t	i;
+	size_t	n;
+	char	*dst;
+	char	*src;
 
-void	end(t_data *data)
-{
-	free_list(data->a_stack);
-	data = NULL;
-	exit(1);
-}
-
-void	free_list(t_listp *list)
-{
-	t_listp	*fr;
-	t_listp	*r;
-
-	if (list)
+	i = 0;
+	dst = (char *)haystack;
+	src = (char *)needle;
+	if (!*src)
+		return ((char *) &haystack[i]);
+	while (dst[i] && i < len)
 	{
-		r = list;
-		while (r->next)
+		n = 0;
+		while (src[n] == dst[i + n] && i + n < len)
 		{
-			fr = r->next;
-			free(r);
-			r = fr;
+			if (src[n + 1] == '\0')
+				return ((char *) &dst[i]);
+			n++;
 		}
-		list = NULL;
+		i++;
 	}
+	return (NULL);
 }

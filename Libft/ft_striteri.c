@@ -1,48 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:34:54 by estrong          ###   ########.fr       */
+/*   Created: 2021/10/20 21:28:37 by estrong           #+#    #+#             */
+/*   Updated: 2021/10/20 22:08:03 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	error(t_data *data)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (data->a_stack)
-		free_list(data->a_stack);
-	write(1, "Error\n", 6);
-	data = NULL;
-	exit(EXIT_FAILURE);
-	return (0);
-}
+	size_t	i;
 
-void	end(t_data *data)
-{
-	free_list(data->a_stack);
-	data = NULL;
-	exit(1);
-}
-
-void	free_list(t_listp *list)
-{
-	t_listp	*fr;
-	t_listp	*r;
-
-	if (list)
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		r = list;
-		while (r->next)
-		{
-			fr = r->next;
-			free(r);
-			r = fr;
-		}
-		list = NULL;
+		f(i, s + i);
+		i++;
 	}
 }

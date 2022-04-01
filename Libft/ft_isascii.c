@@ -1,48 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:34:54 by estrong          ###   ########.fr       */
+/*   Created: 2021/10/05 12:07:21 by estrong           #+#    #+#             */
+/*   Updated: 2021/10/22 17:41:43 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	error(t_data *data)
+int	ft_isascii(int c)
 {
-	if (data->a_stack)
-		free_list(data->a_stack);
-	write(1, "Error\n", 6);
-	data = NULL;
-	exit(EXIT_FAILURE);
+	if (c >= 0 && c <= 127)
+		return (1);
 	return (0);
-}
-
-void	end(t_data *data)
-{
-	free_list(data->a_stack);
-	data = NULL;
-	exit(1);
-}
-
-void	free_list(t_listp *list)
-{
-	t_listp	*fr;
-	t_listp	*r;
-
-	if (list)
-	{
-		r = list;
-		while (r->next)
-		{
-			fr = r->next;
-			free(r);
-			r = fr;
-		}
-		list = NULL;
-	}
 }

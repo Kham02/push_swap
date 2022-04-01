@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:19:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:29:53 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:13:04 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 int	check_sort(t_data *data)
 {
@@ -21,9 +21,9 @@ int	check_sort(t_data *data)
 	lst = data->a_stack;
 	lst1 = data->a_stack->next;
 	i = size_stack(lst);
-	while (lst)
+	while (lst->next != NULL && i >= 0)
 	{
-		if (lst->flag != 1)
+		if (lst->val > lst->next->val)
 			return (1);
 		i--;
 		lst = lst->next;
@@ -33,7 +33,7 @@ int	check_sort(t_data *data)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')

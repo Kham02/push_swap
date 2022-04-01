@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p.c                                                :+:      :+:    :+:   */
+/*   p_bonus.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 13:59:57 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:51:36 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:49:28 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
-//сверху б наверх а
 void	pa(t_data *data)
 {
 	t_listp	*list1;
@@ -25,11 +24,9 @@ void	pa(t_data *data)
 		data->b_stack = list1->next;
 		data->a_stack = list1;
 		list1->next = list2;
-		// ft_putstr_fd("pa\n", 1);
 	}
 }
 
-//сверху а наверх б
 void	pb(t_data *data)
 {
 	t_listp	*list1;
@@ -42,6 +39,5 @@ void	pb(t_data *data)
 		data->a_stack = list1->next;
 		data->b_stack = list1;
 		list1->next = list2;
-		// ft_putstr_fd("pb\n", 1);
 	}
 }

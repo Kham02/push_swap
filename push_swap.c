@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:23:38 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:12:16 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	values(t_data *data)
 {
-	// data->stack = NULL;
 	data->a_stack = NULL;
 	data->b_stack = NULL;
 	data->min = 0;
@@ -26,7 +25,7 @@ void	values(t_data *data)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
@@ -58,61 +57,19 @@ void	check(t_data *data, char **av)
 {
 	int	i;
 
-	i = 2;
+	i = 1;
 	values(data);
 	if (check_dub(av) != 1)
 		error(data);
 	while (av[i])
 	{
-		lst_add_back(&data->a_stack, lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
+		lst_add_back(&data->a_stack, \
+		lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
 		i++;
 	}
-}
-
-// char	**arr(t_data *data, char **av)
-// {
-// 	int		i;
-// 	char	*s1;
-// 	char	**s2;
-
-// 	i = 2;
-// 	s1 = NULL;
-// 	while (av[i])
-// 	{
-// 		s1 = ft_strjoin(s1, av[i]);
-// 		i++;
-// 	}
-// 	s2 = ft_split(s1, ' ');
-// 	free(s1);
-// 	return (s2);
-// }
-
-void	print(t_listp *list)
-{
-	t_listp	*p;
-
-	p = list;
-	printf("\033[38;05;32;48;05;232m""| num |\t|index|\t| cost |""\033[m""\n");
-	while (p != NULL)
-	{
-		printf("\033[38;05;115m""  %d\t  %d\t  %d""\033[m""\n", \
-		(int)p->val, (int)p->order, p->cost);
-		p = p->next;
-	}
-}
-
-int	main(int ac ,char **av)
-{
-	t_data	*data;
-
-	if (!(data = (t_data *)malloc(sizeof(t_data))))
-		error(data);
-	if (ac < 2)
-		error(data);
-	check(data, av);
+	order(data);
 	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 0)
 		end(data);
-	order(data);
 	if (size_stack(data->a_stack) < 5)
 		sort_min(data);
 	else
@@ -121,21 +78,23 @@ int	main(int ac ,char **av)
 		sort_3_el(data);
 		push_a(data);
 	}
-	// print(data->a_stack);
-	// print(data->b_stack);
 	end(data);
-	return (0);
 }
 
-// void	debug_print(t_listp **stack_a, t_listp **stack_b)
-// {
-// 	getchar();
-// 	system("clear");
-// 	printf("\033[04;38;05;76;48;05;232m"\
-// 	"stack_a:                       \n""\033[m");
-// 	print(*stack_a);
-// 	printf("\033[38;05;124;48;05;232m"\
-// 	"stack_b:                       \n""\033[m");
-// 	print(*stack_b);
-// 	write(1, "\033[38;05;226m", 13);
-// }
+int	main(int ac, char **av)
+{
+	t_data	*data;
+
+	data = (t_data *)malloc(sizeof(t_data));
+	if (!data)
+		error(data);
+	if (ac < 2)
+	{
+		write(1, "Error\n", 6);
+		data = NULL;
+		exit(EXIT_FAILURE);
+		return (0);
+	}
+	check(data, av);
+	return (0);
+}

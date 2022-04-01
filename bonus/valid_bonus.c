@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   valid.c                                            :+:      :+:    :+:   */
+/*   valid_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:19:19 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:49:36 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:13:09 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 {
@@ -26,8 +26,6 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 	}
 	if (str[i] == '+' && s == 1)
 		i++;
-	// printf("lol\n");
-	printf("%c", str[i]);
 	if (!ft_isdigit(str[i]))
 		error(data);
 	while (str[i] > 47 && str[i] < 58)
@@ -37,24 +35,22 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 		if ((n > 2147483647 && s == 1) || (n > 2147483648 && s == -1))
 			error(data);
 	}
-	return(n * s);
+	return (n * s);
 }
 
 void	check_valid(t_data *data, char **av)
 {
 	int	i;
 
-	i = 2;
+	i = 1;
 	data->a_stack = NULL;
 	data->b_stack = NULL;
-
 	if (check_dub(av) != 1)
 		error(data);
 	while (av[i])
 	{
-		lst_add_back(&data->a_stack, lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
+		lst_add_back(&data->a_stack, \
+		lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
 		i++;
 	}
-	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 0)
-		end(data);
 }

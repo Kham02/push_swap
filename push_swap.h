@@ -6,18 +6,18 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:23:11 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:41:46 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "Libft/libft.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <stdlib.h>
+# include "Libft/libft.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <fcntl.h>
+# include <stdlib.h>
 
 typedef struct s_listp
 {
@@ -68,7 +68,6 @@ t_listp	*lst_last(t_listp *lst);
 t_listp	*copy_stack(t_listp *stack);
 void	lst_add_back(t_listp **lst, t_listp *new_lst);
 void	check(t_data *data, char **av);
-// char	**arr_wr(char **av);
 int		ft_strcmp(char *s1, char *s2);
 int		check_dub(char **av);
 void	values(t_data *data);
@@ -91,13 +90,6 @@ void	r_scroll(t_data *data, t_listp *lst_mov);
 void	search_next_ord(t_data *data, t_listp *lst_b);
 t_listp	*search_min_mov(t_data *data);
 void	scroll(t_data *data);
-// void	sort(t_data *data);
-// void	sort_b(t_data *data);
-// void	sort_b_utils(t_data *data);
-// void	opt_sort_b(t_data *data);
-// void	sort_a(t_data *data);
-// void	sort_a_utils(t_data *data);
-// void	scroll_up(t_data *data);
 void	free_list(t_listp *list);
 char	error(t_data *data);
 void	end(t_data *data);

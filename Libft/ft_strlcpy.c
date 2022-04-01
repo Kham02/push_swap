@@ -1,48 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:34:54 by estrong          ###   ########.fr       */
+/*   Created: 2021/10/14 13:48:09 by estrong           #+#    #+#             */
+/*   Updated: 2022/03/11 12:05:43 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	error(t_data *data)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	if (data->a_stack)
-		free_list(data->a_stack);
-	write(1, "Error\n", 6);
-	data = NULL;
-	exit(EXIT_FAILURE);
-	return (0);
-}
+	size_t	i;
 
-void	end(t_data *data)
-{
-	free_list(data->a_stack);
-	data = NULL;
-	exit(1);
-}
-
-void	free_list(t_listp *list)
-{
-	t_listp	*fr;
-	t_listp	*r;
-
-	if (list)
+	i = 0;
+	if (dstsize > 0)
 	{
-		r = list;
-		while (r->next)
+		while (src[i] && i < (dstsize - 1))
 		{
-			fr = r->next;
-			free(r);
-			r = fr;
+			dst[i] = src[i];
+			i++;
 		}
-		list = NULL;
+		dst[i] = '\0';
 	}
+	return (ft_strlen(src));
 }

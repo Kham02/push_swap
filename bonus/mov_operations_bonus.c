@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mov_operations.c                                   :+:      :+:    :+:   */
+/*   mov_operations_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:19:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:45:09 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:13:20 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	check_op(t_data *data, char *str)
 {
-	if (ft_strcmp(str, "pa\n"))
-		pb(data);
-	else if (ft_strcmp(str, "pb\n"))
-		pb(data);
-	else if (ft_strcmp(str, "ra\n"))
+	if (!ft_strcmp("ra\n", str))
 		ra(data);
-	else if (ft_strcmp(str, "rb\n"))
-		rb(data);
-	else if (ft_strcmp(str, "rr\n"))
-		rr(data);
-	else if (ft_strcmp(str, "sa\n"))
-		sa(data);
-	else if (ft_strcmp(str, "sb\n"))
-		sb(data);
-	else if (ft_strcmp(str, "ss\n"))
-		ss(data);
-	else if (ft_strcmp(str, "rra\n"))
+	else if (!ft_strcmp("rra\n", str))
 		rra(data);
-	else if (ft_strcmp(str, "rrb\n"))
+	else if (!ft_strcmp("rr\n", str))
+		rr(data);
+	else if (!ft_strcmp("rrr\n", str))
+		rrr(data);
+	else if (!ft_strcmp("sa\n", str))
+		sa(data);
+	else if (!ft_strcmp("pa\n", str))
+		pa(data);
+	else if (!ft_strcmp("pb\n", str))
+		pb(data);
+	else if (!ft_strcmp("rb\n", str))
+		rb(data);
+	else if (!ft_strcmp("rrb\n", str))
 		rrb(data);
-	// else
-	// 	error(data);
+	else if (!ft_strcmp("ss\n", str))
+		ss(data);
+	else if (!ft_strcmp("sb\n", str))
+		sb(data);
+	else
+		error(data);
 }
 
 void	reed_op(t_data *data)

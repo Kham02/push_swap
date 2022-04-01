@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 22:55:41 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 15:56:24 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:46:30 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,11 @@ int	cost_a(t_data *data, t_listp *lst_b)
 		lst_a = lst_a->next;
 		mov++;
 	}
-	// printf("mov: %d\n", mov);
 	if (((size_stack(data->a_stack) + 1) - mov) < mov)
 	{
 		lst_b->cost_a = -1;
 		mov = ((size_stack(data->a_stack) + 1) - mov);
 	}
-	// printf("-mov: %d\n", mov);
 	return (mov);
 }
 
@@ -47,7 +45,6 @@ void	search_next_ord(t_data *data, t_listp *lst_b)
 			data->next_order = lst_a->order;
 		lst_a = lst_a->next;
 	}
-	// printf("next_order: %d\n", data->next_order);
 }
 
 void	init_cost(t_data *data)
@@ -64,16 +61,13 @@ void	init_cost(t_data *data)
 		lst_b->flag = 0;
 		search_next_ord(data, lst_b);
 		cos_a = cost_a(data, lst_b);
-		// printf("cos_a: %d\n", cos_a);
 		cos_b = i;
 		if (cos_b > (size_stack(data->b_stack) + 1) - i)
 		{
 			lst_b->flag = 1;
 			cos_b = (size_stack(data->b_stack) + 1) - i;
 		}
-		// printf("cos_b: %d\n", cos_b);
 		lst_b->cost = cos_a + cos_b;
-		// printf("lst_b->cost: %d\n", lst_b->cost);
 		lst_b = lst_b->next;
 		i++;
 	}

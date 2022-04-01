@@ -1,48 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   err.c                                              :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:34:54 by estrong          ###   ########.fr       */
+/*   Created: 2021/10/14 17:55:13 by estrong           #+#    #+#             */
+/*   Updated: 2022/03/11 12:04:51 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-char	error(t_data *data)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	if (data->a_stack)
-		free_list(data->a_stack);
-	write(1, "Error\n", 6);
-	data = NULL;
-	exit(EXIT_FAILURE);
-	return (0);
-}
+	size_t	i;
 
-void	end(t_data *data)
-{
-	free_list(data->a_stack);
-	data = NULL;
-	exit(1);
-}
-
-void	free_list(t_listp *list)
-{
-	t_listp	*fr;
-	t_listp	*r;
-
-	if (list)
+	i = -1;
+	if (!dst && !src)
+		return (NULL);
+	if ((char *)dst > (char *)src)
 	{
-		r = list;
-		while (r->next)
+		while (len != 0)
 		{
-			fr = r->next;
-			free(r);
-			r = fr;
+			((char *)dst)[i + len] = ((char *)src)[i + len];
+			len--;
 		}
-		list = NULL;
 	}
+	else
+	{
+		while (++i < len)
+			((char *)dst)[i] = ((char *)src)[i];
+	}
+	return (dst);
 }

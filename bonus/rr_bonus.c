@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rr.c                                               :+:      :+:    :+:   */
+/*   rr_bonus.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:27 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:51:51 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:49:53 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
-//снизу наверх
 void	rra(t_data *data)
 {
 	t_listp	*list1;
@@ -27,11 +26,9 @@ void	rra(t_data *data)
 		list1->next = NULL;
 		list2->next = data->a_stack;
 		data->a_stack = list2;
-		// ft_putstr_fd("rra\n", 1);
 	}
 }
 
-//снизу наверх
 void	rrb(t_data *data)
 {
 	t_listp	*list1;
@@ -46,11 +43,9 @@ void	rrb(t_data *data)
 		list1->next = NULL;
 		list2->next = data->b_stack;
 		data->b_stack = list2;
-		// ft_putstr_fd("rrb\n", 1);
 	}
 }
 
-//rra rrb
 void	rrr(t_data *data)
 {
 	t_listp	*list1;
@@ -72,6 +67,5 @@ void	rrr(t_data *data)
 		list1->next = NULL;
 		list2->next = data->b_stack;
 		data->b_stack = list2;
-		// ft_putstr_fd("rrr\n", 1);
 	}
 }

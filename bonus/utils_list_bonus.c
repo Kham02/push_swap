@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils_list.c                                       :+:      :+:    :+:   */
+/*   utils_list_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:19:13 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:38:43 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 20:14:33 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 int	size_stack(t_listp *lst)
 {
@@ -30,6 +30,7 @@ int	size_stack(t_listp *lst)
 t_listp	*lst_new(int val)
 {
 	t_listp	*new_list;
+
 	new_list = malloc(sizeof(t_listp));
 	if (!new_list)
 		return (NULL);
@@ -43,7 +44,7 @@ t_listp	*lst_new(int val)
 void	lst_add_back(t_listp **lst, t_listp *new_lst)
 {
 	t_listp	*tmp;
-	
+
 	tmp = *lst;
 	if (tmp)
 	{

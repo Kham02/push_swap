@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 22:55:44 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 16:09:11 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 17:45:51 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	push_a(t_data *data)
 	lst_mov = data->b_stack;
 	init_cost(data);
 	lst_mov = search_min_mov(data);
-	// printf("next_order: %d\n", data->next_order);
 	if (lst_mov->flag == 1 || lst_mov->cost_a == -1)
 		rr_scroll(data, lst_mov);
 	else
@@ -50,8 +49,6 @@ void	push_a(t_data *data)
 	if (size_stack(data->b_stack) >= 0)
 		push_a(data);
 	scroll(data);
-	// print(data->a_stack);
-	// print(data->b_stack);
 }
 
 void	scroll(t_data *data)
@@ -82,7 +79,8 @@ void	rr_scroll(t_data *data, t_listp *lst_mov)
 {
 	if (lst_mov->flag == 1 && lst_mov->cost_a == -1)
 	{
-		while (data->a_stack->order != data->next_order && data->b_stack != lst_mov)
+		while (data->a_stack->order != data->next_order \
+		&& data->b_stack != lst_mov)
 			rrr(data);
 	}
 	if (lst_mov->cost_a == -1)
@@ -91,15 +89,18 @@ void	rr_scroll(t_data *data, t_listp *lst_mov)
 			rra(data);
 	}
 	if (lst_mov->flag == 1)
-	while (data->b_stack != lst_mov)
-		rrb(data);
+	{
+		while (data->b_stack != lst_mov)
+			rrb(data);
+	}
 }
 
 void	r_scroll(t_data *data, t_listp *lst_mov)
 {
 	if (lst_mov->flag == 0 && lst_mov->cost_a == 0)
 	{
-		while (data->a_stack->order != data->next_order && data->b_stack != lst_mov)
+		while (data->a_stack->order != data->next_order \
+		&& data->b_stack != lst_mov)
 			rr(data);
 	}
 	if (lst_mov->cost_a == 0)

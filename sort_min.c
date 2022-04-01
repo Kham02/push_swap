@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:42 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 19:04:51 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:11:55 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,18 @@ void	sort_3_el(t_data *data)
 	a = data->a_stack->order;
 	an = data->a_stack->next->order;
 	ann = data->a_stack->next->next->order;
-	if (a < an && a < ann && an > ann) //1 3 2
+	if (a < an && a < ann && an > ann)
 		sa(data);
-	if (a > an && a > ann && an > ann) //3 2 1
+	if (a > an && a > ann && an > ann)
 		ra(data);
 	a = data->a_stack->order;
 	an = data->a_stack->next->order;
 	ann = data->a_stack->next->next->order;
-	if (a > an && a > ann && an < ann) //3 1 2
+	if (a > an && a > ann && an < ann)
 		ra(data);
-	if (a > an && a < ann && an < ann) //2 1 3
+	if (a > an && a < ann && an < ann)
 		sa(data);
-	if (a < an && a > ann && an > ann) //2 3 1
+	if (a < an && a > ann && an > ann)
 		rra(data);
 }
 
@@ -96,7 +96,6 @@ void	sort_5_el(t_data *data)
 		else
 			ra(data);
 		size++;
-		// debug_print(&data->a_stack, &data->b_stack);
 	}
 	sort_3_el(data);
 	pa(data);
@@ -106,5 +105,4 @@ void	sort_5_el(t_data *data)
 	if (data->a_stack->order == 3)
 		ra(data);
 	ra(data);
-	// print(data->a_stack);
 }

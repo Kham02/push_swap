@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:18:06 by estrong           #+#    #+#             */
-/*   Updated: 2022/03/31 18:45:42 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/01 21:12:49 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	free_list(t_listp *list)
 {
@@ -43,7 +43,8 @@ void	error(t_data *data)
 
 void	end(t_data *data)
 {
-	if (check_sort(data) == 0 && size_stack(data->b_stack) < 0)
+	if ((check_sort(data) == 0 && data->b_stack == NULL) \
+	|| size_stack(data->a_stack) < 0)
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
@@ -58,12 +59,12 @@ void	end(t_data *data)
 int	main(int ac, char **av)
 {
 	t_data	*data;
-	// (void)av;
-	data = (t_data *)malloc(sizeof(t_data *));
+
+	data = (t_data *)malloc(sizeof(t_data));
 	if (!data)
 		error(data);
 	if (ac < 2)
-		error(data);
+		return (0);
 	check_valid(data, av);
 	reed_op(data);
 	end(data);
