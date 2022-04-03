@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 21:12:16 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:14:35 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,24 +33,26 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int	check_dub(char **av)
+void	check_dub(t_data *data)
 {
-	int	i;
-	int	n;
+	t_listp	*lst_a;
+	t_listp	*lst_a2;
 
-	i = 0;
-	while (av[i])
+	lst_a = data->a_stack;
+	while (lst_a)
 	{
-		n = 0;
-		while (av[n] && i != n)
+		lst_a2 = data->a_stack;
+		while (lst_a2)
 		{
-			if (!ft_strcmp(av[i], av[n]))
-				return (0);
-			n++;
+			if (lst_a != lst_a2)
+			{
+				if (lst_a->val - lst_a2->val == 0)
+					error(data);
+			}
+			lst_a2 = lst_a2->next;
 		}
-		i++;
+		lst_a = lst_a->next;
 	}
-	return (1);
 }
 
 void	check(t_data *data, char **av)
@@ -59,14 +61,13 @@ void	check(t_data *data, char **av)
 
 	i = 1;
 	values(data);
-	if (check_dub(av) != 1)
-		error(data);
 	while (av[i])
 	{
 		lst_add_back(&data->a_stack, \
 		lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
 		i++;
 	}
+	check_dub(data);
 	order(data);
 	if (check_sort(data) == 0 || size_stack(data->a_stack) <= 0)
 		end(data);

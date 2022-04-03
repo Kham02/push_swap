@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:41:46 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/03 17:15:00 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ t_listp	*copy_stack(t_listp *stack);
 void	lst_add_back(t_listp **lst, t_listp *new_lst);
 void	check(t_data *data, char **av);
 int		ft_strcmp(char *s1, char *s2);
-int		check_dub(char **av);
+void	check_dub(t_data *data);
 void	values(t_data *data);
 int		push_swap_atoi(t_data *data, char *str, unsigned int n, int s);
 void	order(t_data *data);
@@ -94,7 +94,4 @@ void	free_list(t_listp *list);
 char	error(t_data *data);
 void	end(t_data *data);
 
-//############### DEBUG ###################
-void	print(t_listp *list);
-// void	debug_print(t_listp **stack_a, t_listp **stack_b);
 #endif
