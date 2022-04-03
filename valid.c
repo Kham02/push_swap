@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:49 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 20:55:08 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/03 18:20:06 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 	int	i;
 
 	i = 0;
-	while ((str[i] > 8 && str[i] < 14) || str[i] == 32 || str[i] == 34)
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
 		i++;
 	if (str[i] == '-')
 	{
@@ -26,8 +26,7 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 	}
 	if (str[i] == '+' && s == 1)
 		i++;
-	if (!ft_isdigit(str[i]))
-		error(data);
+	check_int(data, str);
 	while (str[i] > 47 && str[i] < 58)
 	{
 		n = n * 10 + (str[i] - 48);
@@ -36,6 +35,25 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 			error(data);
 	}
 	return (n * s);
+}
+
+void	check_int(t_data *data, char *str)
+{
+	int	i;
+
+	i = 0;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
+		i++;
+	if (str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			error(data);
+		i++;
+	}
 }
 
 int	check_sort(t_data *data)
@@ -89,34 +107,5 @@ void	search_min(t_data *data, t_listp *lst)
 			data->min = lst1->val;
 		data->i++;
 		lst1 = lst1->next;
-	}
-}
-
-void	order(t_data *data)
-{
-	t_listp	*lst;
-	int		i;
-	int		j;
-	int		size;
-
-	size = size_stack(data->a_stack);
-	i = 0;
-	while (i <= size)
-	{
-		lst = data->a_stack;
-		j = 0;
-		search_max(data, lst);
-		search_min(data, lst);
-		while (j <= size)
-		{
-			if (data->min == lst->val)
-			{
-				lst->order = data->order;
-				data->order++;
-			}
-			j++;
-			lst = lst->next;
-		}
-		i++;
 	}
 }

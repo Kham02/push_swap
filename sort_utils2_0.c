@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 22:55:41 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:46:30 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/03 18:05:22 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,33 @@ t_listp	*search_min_mov(t_data *data)
 		lst_b = lst_b->next;
 	}
 	return (0);
+}
+
+void	order(t_data *data)
+{
+	t_listp	*lst;
+	int		i;
+	int		j;
+	int		size;
+
+	size = size_stack(data->a_stack);
+	i = 0;
+	while (i <= size)
+	{
+		lst = data->a_stack;
+		j = 0;
+		search_max(data, lst);
+		search_min(data, lst);
+		while (j <= size)
+		{
+			if (data->min == lst->val)
+			{
+				lst->order = data->order;
+				data->order++;
+			}
+			j++;
+			lst = lst->next;
+		}
+		i++;
+	}
 }

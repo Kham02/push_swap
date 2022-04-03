@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/03 17:15:00 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/03 18:09:53 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		ft_strcmp(char *s1, char *s2);
 void	check_dub(t_data *data);
 void	values(t_data *data);
 int		push_swap_atoi(t_data *data, char *str, unsigned int n, int s);
+void	check_int(t_data *data, char *str);
 void	order(t_data *data);
 void	search_min(t_data *data, t_listp *lst);
 void	search_max(t_data *data, t_listp *lst);
