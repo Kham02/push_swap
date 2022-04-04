@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 13:59:03 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 17:34:54 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/04 13:04:23 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ char	error(t_data *data)
 	write(1, "Error\n", 6);
 	data = NULL;
 	exit(EXIT_FAILURE);
-	return (0);
 }
 
 void	end(t_data *data)
 {
-	free_list(data->a_stack);
+	if (data->a_stack)
+		free_list(data->a_stack);
 	data = NULL;
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:19:19 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 21:13:09 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/04 13:14:41 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 	}
 	if (str[i] == '+' && s == 1)
 		i++;
-	if (!ft_isdigit(str[i]))
-		error(data);
+	check_int(data, str);
 	while (str[i] > 47 && str[i] < 58)
 	{
 		n = n * 10 + (str[i] - 48);
@@ -38,6 +37,25 @@ int	push_swap_atoi(t_data *data, char *str, unsigned int n, int s)
 	return (n * s);
 }
 
+void	check_int(t_data *data, char *str)
+{
+	int	i;
+
+	i = 0;
+	while ((str[i] > 8 && str[i] < 14) || str[i] == 32)
+		i++;
+	if (str[i] == '-')
+		i++;
+	if (str[i] == '+')
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			error(data);
+		i++;
+	}
+}
+
 void	check_valid(t_data *data, char **av)
 {
 	int	i;
@@ -45,12 +63,11 @@ void	check_valid(t_data *data, char **av)
 	i = 1;
 	data->a_stack = NULL;
 	data->b_stack = NULL;
-	if (check_dub(av) != 1)
-		error(data);
 	while (av[i])
 	{
 		lst_add_back(&data->a_stack, \
 		lst_new(push_swap_atoi(data, (char *)av[i], 0, 1)));
 		i++;
 	}
+	check_dub(data);
 }

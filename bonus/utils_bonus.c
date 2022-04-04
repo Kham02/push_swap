@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:19:16 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 21:13:04 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/04 13:13:04 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,24 @@ int	ft_strcmp(char *s1, char *s2)
 	return (s1[i] - s2[i]);
 }
 
-int	check_dub(char **av)
+void	check_dub(t_data *data)
 {
-	int	i;
-	int	n;
+	t_listp	*lst_a;
+	t_listp	*lst_a2;
 
-	i = 0;
-	while (av[i])
+	lst_a = data->a_stack;
+	while (lst_a)
 	{
-		n = 0;
-		while (av[n] && i != n)
+		lst_a2 = data->a_stack;
+		while (lst_a2)
 		{
-			if (!ft_strcmp(av[i], av[n]))
-				return (0);
-			n++;
+			if (lst_a != lst_a2)
+			{
+				if (lst_a->val - lst_a2->val == 0)
+					error(data);
+			}
+			lst_a2 = lst_a2->next;
 		}
-		i++;
+		lst_a = lst_a->next;
 	}
-	return (1);
 }

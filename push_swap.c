@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:00:12 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/03 17:14:35 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/04 13:16:46 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,10 +91,8 @@ int	main(int ac, char **av)
 		error(data);
 	if (ac < 2)
 	{
-		write(1, "Error\n", 6);
 		data = NULL;
-		exit(EXIT_FAILURE);
-		return (0);
+		exit(1);
 	}
 	check(data, av);
 	return (0);

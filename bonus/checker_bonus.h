@@ -6,7 +6,7 @@
 /*   By: estrong <estrong@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/27 19:18:15 by estrong           #+#    #+#             */
-/*   Updated: 2022/04/01 20:19:34 by estrong          ###   ########.fr       */
+/*   Updated: 2022/04/04 13:14:56 by estrong          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_listp	*lst_new(int val);
 t_listp	*lst_last(t_listp *lst);
 void	lst_add_back(t_listp **lst, t_listp *new_lst);
 void	check_valid(t_data *data, char **av);
-int		check_dub(char **av);
+void	check_dub(t_data *data);
 int		ft_strcmp(char *s1, char *s2);
 int		check_sort(t_data *data);
 int		push_swap_atoi(t_data *data, char *str, unsigned int n, int s);
@@ -56,7 +56,8 @@ void	check_op(t_data *data, char *str);
 void	error(t_data *data);
 void	free_list(t_listp *list);
 void	end(t_data *data);
+void	check_int(t_data *data, char *str);
 
-void	print(t_listp *list);
+// void	print(t_listp *list);
 
 #endif
